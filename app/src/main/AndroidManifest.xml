@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TalaFinalProject17">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MyUI.SignUpActivity"></activity>
+        <activity android:name=".MyUI.SignInActivity" />
+        <activity android:name=".MyUI.HomeScreenActivity" />
+        <activity android:name=".MyUI.AddShopActivity" />
+        <activity android:name=".MyUI.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
