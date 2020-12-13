@@ -30,26 +30,26 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
          * @param parent listview
          * @return
          */
-
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
+    }
+    @NonNull
+    @Override
+        public View getView(int position,@Nullable View convertView, @NonNull ViewGroup parent) {
             //3.1
-            View v = LayoutInflater.from(getContext()).inflate(R.layout.item_shop_view, parent, false);
+            View v= LayoutInflater.from(getContext()).inflate(R.layout.item_shop_view1,parent,false);
             //3.2 find view by ID
-            TextView tvName = v.findViewById(R.id.itmTvName);
-            TextView tvType = v.findViewById(R.id.itmTvType);
+            TextView tvName=v.findViewById(R.id.itmTvName);
+            TextView tvType=v.findViewById(R.id.itemTvType);
             //what is the best type of this field(tvtype+ tvdiscount)
-            TextView tvDiscount = v.findViewById(R.id.itmTvDiscount);
-            TextView tvAddress = v.findViewById(R.id.itmTvAddress);
+            TextView tvDiscount=v.findViewById(R.id.itmtVDiscount);
+            TextView tvAddress=v.findViewById(R.id.itmTvAddress);
 
-            ImageButton btnDelete = v.findViewById(R.id.itmbtnDelete);
-            ImageButton btnEdit = v.findViewById(R.id.itmbtnDelete);
-            ImageButton btnSort = v.findViewById(R.id.itmbtnSort);
-            ImageButton btnLocation = v.findViewById(R.id.itmBtnLocation);
+            ImageButton btnDelete=v.findViewById(R.id.itmbtnDelete);
+            ImageButton btnEdit=v.findViewById(R.id.imgbtnEdit);
+            ImageButton btnSort=v.findViewById(R.id.itmbtnSort);
+            ImageButton btnLocation=v.findViewById(R.id.itmbtnLocation);
 
             //3.3 get the soutable shop object
-            final Shop shop = getItem(position);
+            final Shop shop=getItem(position);
             //3.4 connect the dot to the view (view the data using item views)
             tvName.setText(shop.getName());
             tvAddress.setText(shop.getAdress());
@@ -72,6 +72,7 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
             case 1: tvImportant.setBackgroundColor(Color.RED);break;
         }
          */
+
 
 
             //3.5 events
@@ -98,5 +99,4 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
             return v;
 
         }
-    }
 }
