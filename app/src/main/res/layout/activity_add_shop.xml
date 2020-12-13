@@ -24,12 +24,16 @@
                     android:id="@+id/btnUpload"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/black"
+
                     android:text="Uplopad" />
 
                 <Button
                     android:id="@+id/btnSaveShop"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/black"
+
                     android:text="Save" />
 
                 <EditText
