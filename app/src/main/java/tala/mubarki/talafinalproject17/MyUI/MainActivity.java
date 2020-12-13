@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         //3
         lstShop=findViewById(R.id.lstShop);
         //4
-        shopsAdaptor=new MyShopsAdaptor(getBaseContext(),R.layout.item_shop_view);
+        shopsAdaptor=new MyShopsAdaptor(getBaseContext(),R.layout.item_shop_view1);
         //5. connect listview to the adaptor
         lstShop.setAdapter(shopsAdaptor);
         //7
