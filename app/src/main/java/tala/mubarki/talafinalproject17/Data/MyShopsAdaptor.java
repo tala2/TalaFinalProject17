@@ -44,7 +44,7 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
             TextView tvAddress = v.findViewById(R.id.itmTvAddress);
 
             ImageButton btnDelete = v.findViewById(R.id.itmbtnDelete);
-            ImageButton btnEdit = v.findViewById(R.id.itmbtnEdit);
+            ImageButton btnEdit = v.findViewById(R.id.itmbtnDelete);
             ImageButton btnSort = v.findViewById(R.id.itmbtnSort);
             ImageButton btnLocation = v.findViewById(R.id.itmBtnLocation);
 
