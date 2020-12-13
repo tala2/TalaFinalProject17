@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -60,7 +62,7 @@ public class AddShopActivity extends AppCompatActivity {
     }
     //6.3 request to save mt shop (firebase database)
     private void saveShop (Shop shop){
-        FirebaseApp database= FirebaseDatabase.getInstance();
+        FirebaseDatabase database=FirebaseDatabase.getInstance();
         //2.
         DatabaseReference reference=database.getReference();
         //3. user id
@@ -85,6 +87,7 @@ public class AddShopActivity extends AppCompatActivity {
                 }
             }
         });
+
 
     }
 }
