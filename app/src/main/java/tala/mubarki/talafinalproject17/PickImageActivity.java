@@ -1,6 +1,7 @@
 package tala.mubarki.talafinalproject17;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
@@ -77,6 +78,17 @@ public class PickImageActivity extends AppCompatActivity {
                 }
             }
 
+        }
+    }
+    //handle result of picked image
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK && requestCode== IMAGE_PICK_CODE){
+            //set image to image view
+            mImageView.setImageURI(data.getData());
         }
     }
 }
