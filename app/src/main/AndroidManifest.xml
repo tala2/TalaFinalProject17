@@ -15,13 +15,15 @@
         <activity android:name=".MyUI.SignUpActivity" >
 
         </activity>
-        <activity android:name=".MyUI.SignInActivity" > <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+        <activity android:name=".MyUI.SignInActivity" >
         </activity>
-        <activity android:name=".MyUI.HomeScreenActivity" />
+        <activity android:name=".MyUI.HomeScreenActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MyUI.AddShopActivity" />
         <activity android:name=".MyUI.MainActivity">
 
