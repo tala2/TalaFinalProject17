@@ -30,18 +30,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseAuth auth=FirebaseAuth.getInstance();
+        if(auth.getCurrentUser()==null)
+        {
+            startActivity(new Intent(getApplicationContext(),SignInActivity.class));
+        }
         setContentView(R.layout.activity_main);
         final FirebaseDatabase database= FirebaseDatabase.getInstance();
         //2.
         DatabaseReference reference= database.getReference();
         //3. user id
-        FirebaseAuth auth=FirebaseAuth.getInstance();
-        String uid=auth.getCurrentUser().getUid();
+
+        String uid="";
         if (auth.getCurrentUser()==null)
         {
             Intent i= new Intent(MainActivity.this,SignInActivity.class);
             startActivity(i);
         }
+        else
+             uid=auth.getCurrentUser().getUid();
         ibtnAdd=findViewById(R.id.ibtnAdd);
         //listner
         ibtnAdd.setOnClickListener(new View.OnClickListener() {
