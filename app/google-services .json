@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "298299554318",
+    "project_id": "talafinalproject17",
+    "storage_bucket": "talafinalproject17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298299554318:android:e7184fba8ac9c4c0d7da5f",
+        "android_client_info": {
+          "package_name": "tala.mubarki.talafinalproject17"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "298299554318-putnf8h3tnlskbrqiq64d51k19shtku6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaa0ExcCTGIjnawJX0XwiGLpmp6lEINP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "298299554318-putnf8h3tnlskbrqiq64d51k19shtku6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
