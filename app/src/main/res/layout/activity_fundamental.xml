@@ -68,19 +68,19 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/black"
         android:textSize="70sp"
-        app:layout_constraintBottom_toTopOf="@+id/imgbtnSearch"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnMap"
+        app:layout_constraintBottom_toTopOf="@+id/imgbtnMap"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnSearch"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <ImageButton
-        android:id="@+id/imgbtnSearch"
+        android:id="@+id/imgbtnMap"
         android:layout_width="200dp"
         android:layout_height="148dp"
         android:layout_marginEnd="202dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnMap"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnSearch"
         app:layout_constraintTop_toBottomOf="@+id/btnFind"
         app:srcCompat="@drawable/ic_baseline_map_24" />
 
@@ -96,13 +96,13 @@
         app:srcCompat="@drawable/ic_baseline_more_horiz_24" />
 
     <ImageButton
-        android:id="@+id/imgbtnMap"
+        android:id="@+id/imgbtnSearch"
         android:layout_width="190dp"
         android:layout_height="148dp"
         android:layout_marginEnd="145dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imgbtnSearch"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnMap"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgbtnHOTEST"
         app:layout_constraintVertical_bias="1.0"

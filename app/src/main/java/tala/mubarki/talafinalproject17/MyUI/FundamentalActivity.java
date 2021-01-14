@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -22,9 +21,9 @@ public class FundamentalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fundamental);
         imgbtnHOTEST=findViewById(R.id.imgbtnHOTEST);
         imgbtnProfile=findViewById(R.id.imgbtnPROFILE);
-        imgbtnSearch=findViewById(R.id.imgbtnSearch);
+        imgbtnSearch=findViewById(R.id.imgbtnMap);
         imgbtnMore=findViewById(R.id.imgbtnMore);
-        imgbtnMap=findViewById(R.id.imgbtnMap);
+        imgbtnMap=findViewById(R.id.imgbtnSearch);
         btnFind=findViewById(R.id.btnFind);
 
     }
