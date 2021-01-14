@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyUI.FundamentalActivity">
+
+    <ImageButton
+        android:id="@+id/imgbtnHOTEST"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="83dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="982dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/imgbtnMore"
+        app:layout_constraintEnd_toStartOf="@+id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_local_fire_department_24" />
+
+    <ImageButton
+        android:id="@+id/imgbtnPROFILE"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="83dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="989dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/imgbtnShop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="291dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="181dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="579dp"
+        android:fontFamily="@font/allura"
+        android:text="Search"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/purple_500"
+        android:textSize="100sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/btnFind"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnPROFILE"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnHOTEST"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnFind"
+        android:layout_width="409dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="95dp"
+        android:backgroundTint="@color/common_google_signin_btn_tint"
+        android:fontFamily="@font/alice"
+        android:text="Find"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/black"
+        android:textSize="70sp"
+        app:layout_constraintBottom_toTopOf="@+id/imgbtnSearch"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnMap"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <ImageButton
+        android:id="@+id/imgbtnSearch"
+        android:layout_width="200dp"
+        android:layout_height="148dp"
+        android:layout_marginEnd="202dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnMap"
+        app:layout_constraintTop_toBottomOf="@+id/btnFind"
+        app:srcCompat="@drawable/ic_baseline_map_24" />
+
+    <ImageButton
+        android:id="@+id/imgbtnShop"
+        android:layout_width="204dp"
+        android:layout_height="152dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnMore"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnPROFILE"
+        app:srcCompat="@drawable/ic_baseline_more_horiz_24" />
+
+    <ImageButton
+        android:id="@+id/imgbtnMap"
+        android:layout_width="190dp"
+        android:layout_height="148dp"
+        android:layout_marginEnd="145dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnHOTEST"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_baseline_search_24" />
+
+    <ImageButton
+        android:id="@+id/imgbtnMore"
+        android:layout_width="208dp"
+        android:layout_height="156dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginEnd="156dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnShop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnHOTEST"
+        app:srcCompat="@drawable/ic_baseline_shopping_bag_24" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
