@@ -10,15 +10,16 @@
         android:id="@+id/imgbtnHOTEST"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="83dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="982dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="406dp"
+        android:layout_marginBottom="998dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/imgbtnMore"
-        app:layout_constraintEnd_toStartOf="@+id/tvTitle"
+        app:layout_constraintBottom_toTopOf="@+id/btnSearch"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnPROFILE"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_baseline_local_fire_department_24" />
 
     <ImageButton
@@ -27,21 +28,20 @@
         android:layout_height="0dp"
         android:layout_marginTop="83dp"
         android:layout_marginEnd="54dp"
-        android:layout_marginBottom="989dp"
+        android:layout_marginBottom="1017dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/imgbtnShop"
+        app:layout_constraintBottom_toTopOf="@+id/btnMore"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvTitle"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnHOTEST"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="291dp"
-        android:layout_height="135dp"
-        android:layout_marginTop="181dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginBottom="579dp"
+        android:layout_width="306dp"
+        android:layout_height="139dp"
+        android:layout_marginTop="246dp"
+        android:layout_marginBottom="568dp"
         android:fontFamily="@font/allura"
         android:text="Search"
         android:textAlignment="center"
@@ -51,16 +51,19 @@
         android:textStyle="bold"
         android:typeface="normal"
         app:layout_constraintBottom_toTopOf="@+id/btnFind"
-        app:layout_constraintEnd_toStartOf="@+id/imgbtnPROFILE"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnHOTEST"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnFind"
         android:layout_width="409dp"
         android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="95dp"
+        android:layout_marginTop="949dp"
+        android:layout_marginEnd="171dp"
+        android:layout_marginBottom="139dp"
         android:backgroundTint="@color/common_google_signin_btn_tint"
         android:fontFamily="@font/alice"
         android:text="Find"
@@ -68,57 +71,107 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/black"
         android:textSize="70sp"
-        app:layout_constraintBottom_toTopOf="@+id/imgbtnMap"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnSearch"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        app:layout_constraintBottom_toTopOf="@+id/btnShop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imgbtnMap"
-        android:layout_width="200dp"
-        android:layout_height="148dp"
-        android:layout_marginEnd="202dp"
-        android:background="@color/white"
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="491dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/custom_search_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnMore"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+
+    <Button
+        android:id="@+id/btnShop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/custom_shop_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnMap"
+        app:layout_constraintStart_toEndOf="@+id/btnSearch"
+        app:layout_constraintTop_toTopOf="@+id/btnMap" />
+
+    <Button
+        android:id="@+id/btnMap"
+        android:layout_width="0dp"
+        android:layout_height="117dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/custom_map"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnMore"
+        app:layout_constraintStart_toEndOf="@+id/btnShop" />
+
+    <Button
+        android:id="@+id/btnMore"
+        android:layout_width="154dp"
+        android:layout_height="111dp"
+        android:layout_marginEnd="7dp"
+        android:background="@drawable/custom_more_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnSearch"
-        app:layout_constraintTop_toBottomOf="@+id/btnFind"
-        app:srcCompat="@drawable/ic_baseline_map_24" />
+        app:layout_constraintStart_toEndOf="@+id/btnSearch"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <ImageButton
-        android:id="@+id/imgbtnShop"
-        android:layout_width="204dp"
-        android:layout_height="152dp"
-        android:background="@color/white"
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="452dp"
+        android:layout_marginBottom="157dp"
+        android:ems="10"
+        android:fontFamily="@font/alike"
+        android:inputType="textPersonName"
+        android:text="Your location/in which area you want to find the shop?"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="774dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="588dp"
+        android:layout_marginBottom="551dp"
+        android:ems="10"
+        android:fontFamily="@font/alike"
+        android:inputType="textPersonName"
+        android:text="What kind of shop you need?"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="530dp"
+        android:ems="10"
+        android:fontFamily="@font/alike"
+        android:inputType="textPersonName"
+        android:text="Discount (yes/no)?"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnMore"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtnPROFILE"
-        app:srcCompat="@drawable/ic_baseline_more_horiz_24" />
-
-    <ImageButton
-        android:id="@+id/imgbtnSearch"
-        android:layout_width="190dp"
-        android:layout_height="148dp"
-        android:layout_marginEnd="145dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imgbtnMap"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtnHOTEST"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_baseline_search_24" />
-
-    <ImageButton
-        android:id="@+id/imgbtnMore"
-        android:layout_width="208dp"
-        android:layout_height="156dp"
-        android:layout_marginStart="145dp"
-        android:layout_marginEnd="156dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imgbtnShop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtnHOTEST"
-        app:srcCompat="@drawable/ic_baseline_shopping_bag_24" />
-
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

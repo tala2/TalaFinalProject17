@@ -11,7 +11,7 @@ import tala.mubarki.talafinalproject17.R;
 //1 xml
 public class FundamentalActivity extends AppCompatActivity {
     //2
-    private ImageButton imgbtnHOTEST,imgbtnProfile,imgbtnSearch,imgbtnShop,imgbtnMap,imgbtnMore;
+    private ImageButton imgbtnHOTEST,imgbtnProfile;
     private TextView tvTitle;
     private Button btnFind;
     @Override
@@ -21,9 +21,7 @@ public class FundamentalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fundamental);
         imgbtnHOTEST=findViewById(R.id.imgbtnHOTEST);
         imgbtnProfile=findViewById(R.id.imgbtnPROFILE);
-        imgbtnSearch=findViewById(R.id.imgbtnMap);
-        imgbtnMore=findViewById(R.id.imgbtnMore);
-        imgbtnMap=findViewById(R.id.imgbtnSearch);
+
         btnFind=findViewById(R.id.btnFind);
 
     }

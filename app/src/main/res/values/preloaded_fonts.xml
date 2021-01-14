@@ -2,6 +2,7 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/alice</item>
+        <item>@font/alike</item>
         <item>@font/allura</item>
         <item>@font/amiri</item>
         <item>@font/faster_one</item>
