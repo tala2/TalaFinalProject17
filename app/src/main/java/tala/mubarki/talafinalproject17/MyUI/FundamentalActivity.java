@@ -13,7 +13,7 @@ public class FundamentalActivity extends AppCompatActivity {
     //2
     private ImageButton imgbtnHOTEST,imgbtnProfile;
     private TextView tvTitle;
-    private Button btnFind;
+    private Button btnFind,btnShop,btnMap,btnMore,btnSearch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +21,11 @@ public class FundamentalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fundamental);
         imgbtnHOTEST=findViewById(R.id.imgbtnHOTEST);
         imgbtnProfile=findViewById(R.id.imgbtnPROFILE);
-
         btnFind=findViewById(R.id.btnFind);
+        btnMap=findViewById(R.id.btnMap);
+        btnMore=findViewById(R.id.btnMore);
+        btnSearch=findViewById(R.id.btnSearch);
+        btnShop=findViewById(R.id.btnShop);
 
     }
 }
