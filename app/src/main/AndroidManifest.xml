@@ -11,7 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TalaFinalProject17">
-        <activity android:name=".shopsActivity"></activity>
+        <activity
+            android:name=".MyUI.MainActivity2"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.TalaFinalProject17.NoActionBar"></activity>
+        <activity android:name=".shopsActivity" />
         <activity android:name=".MyUI.FundamentalActivity" />
         <activity android:name=".PickImageActivity" />
         <activity android:name=".MyUI.SignUpActivity" />
