@@ -23,9 +23,7 @@
                 android:lineSpacingExtra="8sp"
                 android:text="Sign Up"
                 android:textAlignment="center"
-                android:textSelectHandle="@drawable/ic_launcher_foreground"
-                android:textSelectHandleLeft="@drawable/ic_launcher_foreground"
-                android:textSelectHandleRight="@drawable/ic_launcher_foreground"
+
                 android:textSize="36sp"
                 android:typeface="serif"
                 android:visibility="visible"
