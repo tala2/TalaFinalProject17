@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.SeekBar;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +25,8 @@ import tala.mubarki.talafinalproject17.R;
 public class SignUpActivity extends AppCompatActivity {
     //2 find view by id
     private TextView TvSignUp;
-    private SeekBar skbr;
+    private ScrollView scrView;
+    private TableLayout tab;
     private EditText etFirstName,etLastName,etPhone,etEmail2,etPassWord,etPassWordVarify;
     private Button btnSave,btnReturn;
 
@@ -40,7 +43,9 @@ public class SignUpActivity extends AppCompatActivity {
         etPassWordVarify = findViewById(R.id.etPassWordVarify);//verifying
         btnSave = findViewById(R.id.btnSave);//save data
         btnReturn = findViewById(R.id.btnReturn);//return to the home screen
-        skbr = findViewById(R.id.skbr);
+        scrView= findViewById(R.id.scrView);
+        tab=findViewById(R.id.tab);
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
