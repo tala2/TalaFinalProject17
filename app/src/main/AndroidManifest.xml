@@ -11,13 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TalaFinalProject17">
-        <activity android:name=".PickImageActivity"></activity>
-        <activity android:name=".MyUI.SignUpActivity" >
-
-        </activity>
-        <activity android:name=".MyUI.SignInActivity" >
-        </activity>
-        <activity android:name=".MyUI.HomeScreenActivity" >
+        <activity
+            android:name=".MyUI.MainActivity2"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.TalaFinalProject17.NoActionBar"></activity>
+        <activity android:name=".shopsActivity" />
+        <activity android:name=".MyUI.FundamentalActivity" />
+        <activity android:name=".PickImageActivity" />
+        <activity android:name=".MyUI.SignUpActivity" />
+        <activity android:name=".MyUI.SignInActivity" />
+        <activity android:name=".MyUI.HomeScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,9 +28,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MyUI.AddShopActivity" />
-        <activity android:name=".MyUI.MainActivity">
+        <activity android:name=".MyUI.MainActivity" />
 
-        </activity>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
