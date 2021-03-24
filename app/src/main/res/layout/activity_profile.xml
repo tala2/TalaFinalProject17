@@ -4,19 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyUI.SignUpActivity">
-
+    tools:context=".ProfileActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvSignUp"
+            android:id="@+id/tvProfile1"
             android:layout_width="match_parent"
             android:layout_height="99dp"
             android:lineSpacingExtra="8sp"
-            android:text="Sign Up"
+            android:text="Profile"
             android:textAlignment="center"
             android:textAppearance="@style/Widget.Support.CoordinatorLayout"
 
@@ -46,25 +45,46 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-
+                        <EditText
+                            android:id="@+id/etFirstName1"
+                            android:layout_width="203dp"
+                            android:layout_height="82dp"
+                            android:ems="10"
+                            android:hint="Enter Your First Name"
+                            android:inputType="textPersonName"
+                            android:textStyle="bold" />
 
                         <Space
                             android:layout_width="128dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1" />
 
-
+                        <EditText
+                            android:id="@+id/etLastName1"
+                            android:layout_width="199dp"
+                            android:layout_height="81dp"
+                            android:ems="10"
+                            android:hint="Enter Your Last Name"
+                            android:inputType="textPersonName"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
-
+                    <EditText
+                        android:id="@+id/etPhone1"
+                        android:layout_width="match_parent"
+                        android:layout_height="78dp"
+                        android:ems="10"
+                        android:hint="Phone Number"
+                        android:inputType="phone"
+                        android:textStyle="bold" />
 
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="29dp" />
 
                     <EditText
-                        android:id="@+id/etEmail2"
+                        android:id="@+id/etEmail21"
                         android:layout_width="match_parent"
                         android:layout_height="75dp"
                         android:ems="10"
@@ -78,7 +98,7 @@
                         android:layout_height="29dp" />
 
                     <EditText
-                        android:id="@+id/etPassWord"
+                        android:id="@+id/etPassWord1"
                         android:layout_width="match_parent"
                         android:layout_height="75dp"
                         android:ems="10"
@@ -91,7 +111,7 @@
                         android:layout_height="34dp" />
 
                     <EditText
-                        android:id="@+id/etPassWordVarify"
+                        android:id="@+id/etPassWordVarify1"
                         android:layout_width="match_parent"
                         android:layout_height="78dp"
                         android:ems="10"
@@ -109,7 +129,7 @@
                         android:orientation="horizontal">
 
                         <Button
-                            android:id="@+id/btnSave"
+                            android:id="@+id/btnSave1"
                             android:layout_width="145dp"
                             android:layout_height="94dp"
                             android:backgroundTint="@android:color/black"
@@ -127,9 +147,9 @@
                             android:layout_weight="1" />
 
                         <Button
-                            android:id="@+id/btnReturn"
+                            android:id="@+id/btnReturn1"
                             android:layout_width="175dp"
-                            android:layout_height="94dp"
+                            android:layout_height="wrap_content"
                             android:backgroundTint="@android:color/black"
                             android:text="RETURN"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -144,5 +164,4 @@
 
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
