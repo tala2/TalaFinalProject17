@@ -31,7 +31,7 @@ public class AddShopActivity extends AppCompatActivity {
         //3 find view by id
         setContentView(R.layout.activity_add_shop);
         etAdress=findViewById(R.id.etEmailAdress);
-        etPhone=findViewById(R.id.etPhone);
+        etPhone=findViewById(R.id.EtPhone);
         btnUpload=findViewById(R.id.btnUpload);
         //4 listner
         btnSaveShop.setOnClickListener(new View.OnClickListener() {

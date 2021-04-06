@@ -60,8 +60,6 @@ public class Shop {
         this.rate = rate;
     }
 
-
-
     public String getPhone() {
         return phone;
     }
@@ -69,6 +67,4 @@ public class Shop {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-
 }

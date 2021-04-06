@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".shopsActivity">
+    tools:context=".Shops">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -34,7 +34,8 @@
         <ListView
             android:id="@+id/TvTopShops"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:baselineAligned="false" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

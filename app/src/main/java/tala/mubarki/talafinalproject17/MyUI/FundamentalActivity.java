@@ -10,6 +10,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import tala.mubarki.talafinalproject17.R;
+import tala.mubarki.talafinalproject17.Shops;
+
 //1 xml
 public class FundamentalActivity extends AppCompatActivity {
     //2
@@ -32,7 +34,7 @@ public class FundamentalActivity extends AppCompatActivity {
         btnShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i=new Intent(FundamentalActivity.this,.)
+            Intent i= new Intent(FundamentalActivity.this,Shops.class);
             }
         });
         
