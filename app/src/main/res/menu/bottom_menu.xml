@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/firstfragment"
+        android:title="Search" android:icon="@drawable/btnsearch_pressed" />
+    <item
+        android:id="@+id/secondfragment"
+        android:title="Shops" android:icon="@drawable/btnshop_pressed" />
+    <item
+        android:id="@+id/thirdfragment"
+        android:title="Map" android:icon="@drawable/btnmap_pressed"/>
+    <item
+        android:id="@+id/forthfragment"
+        android:title="Profile" android:icon="@drawable/ic_baseline_account_circle_24"/>
+</menu>

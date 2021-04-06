@@ -27,9 +27,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="570dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/btnMore"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgbtnHOTEST"
         app:layout_constraintTop_toTopOf="parent"
@@ -43,7 +41,7 @@
         android:layout_marginEnd="52dp"
         android:layout_marginBottom="76dp"
         android:fontFamily="@font/allura"
-        android:text="Search"
+        android:text="First Fragment"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/purple_500"
@@ -74,19 +72,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnSearch"
-        android:layout_width="75dp"
-        android:layout_height="73dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="1dp"
-        android:background="@drawable/custom_search_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnShop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
         android:id="@+id/btnShop"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -95,31 +80,17 @@
         android:background="@drawable/custom_shop_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnMap"
-        app:layout_constraintStart_toEndOf="@+id/btnSearch"
         app:layout_constraintTop_toBottomOf="@+id/btnFind" />
 
     <Button
         android:id="@+id/btnMap"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="40dp"
         android:layout_marginBottom="3dp"
         android:background="@drawable/custom_map"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnMore"
         app:layout_constraintStart_toEndOf="@+id/btnShop"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
-
-    <Button
-        android:id="@+id/btnMore"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="1dp"
-        android:background="@drawable/custom_more_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnMap"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtnPROFILE" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
@@ -171,4 +142,5 @@
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

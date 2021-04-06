@@ -26,10 +26,7 @@ public class FundamentalActivity extends AppCompatActivity {
         imgbtnHOTEST=findViewById(R.id.imgbtnHOTEST);
         imgbtnProfile=findViewById(R.id.imgbtnPROFILE);
         btnFind=findViewById(R.id.btnFind);
-        btnMap=findViewById(R.id.btnMap);
-        btnMore=findViewById(R.id.btnMore);
-        btnSearch=findViewById(R.id.btnSearch);
-        btnShop=findViewById(R.id.btnShop);
+
         //3
         btnShop.setOnClickListener(new View.OnClickListener() {
             @Override

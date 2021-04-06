@@ -9,11 +9,8 @@ import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
-import tala.mubarki.talafinalproject17.MyUI.ui.main.SectionsPagerAdapter;
 import tala.mubarki.talafinalproject17.R;
 
 public class MainActivity2 extends AppCompatActivity {
