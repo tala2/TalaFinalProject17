@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import tala.mubarki.talafinalproject17.R;
-import tala.mubarki.talafinalproject17.Shops;
+import tala.mubarki.talafinalproject17.MyUtils.Shops;
 
 //1 xml
 public class FundamentalActivity extends AppCompatActivity {

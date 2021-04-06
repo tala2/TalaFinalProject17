@@ -12,17 +12,17 @@
         tools:layout="@layout/activity_fundamental" />
     <fragment
         android:id="@+id/thirdfragment"
-        android:name="tala.mubarki.talafinalproject17.MapsFragment2"
+        android:name="tala.mubarki.talafinalproject17.Fragments.MapsFragment2"
         android:label="fragment_maps2"
         tools:layout="@layout/fragment_maps2" />
     <fragment
         android:id="@+id/secondfragment"
-        android:name="tala.mubarki.talafinalproject17.MyUI.ui.main.ShopsFragment"
+        android:name="tala.mubarki.talafinalproject17.Fragments.ShopsFragment"
         android:label="fragment_shops"
         tools:layout="@layout/fragment_shops" />
     <activity
         android:id="@+id/forthfragment"
-        android:name="tala.mubarki.talafinalproject17.ProfileActivity"
+        android:name="tala.mubarki.talafinalproject17.Fragments.ProfileActivity"
         android:label="activity_profile"
         tools:layout="@layout/activity_profile" />
 </navigation>

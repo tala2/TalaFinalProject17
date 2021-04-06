@@ -1,4 +1,4 @@
-package tala.mubarki.talafinalproject17.MyUI.ui.main;
+package tala.mubarki.talafinalproject17.Fragments;
 
 import android.os.Bundle;
 

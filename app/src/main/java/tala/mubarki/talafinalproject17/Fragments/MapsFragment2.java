@@ -1,4 +1,4 @@
-package tala.mubarki.talafinalproject17;
+package tala.mubarki.talafinalproject17.Fragments;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +15,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import tala.mubarki.talafinalproject17.R;
 
 public class MapsFragment2 extends Fragment {
 

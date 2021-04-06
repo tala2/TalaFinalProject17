@@ -30,13 +30,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".MainShopsActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity
-            android:name=".MyUI.MainActivity2"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.TalaFinalProject17.NoActionBar" />
-        <activity android:name=".Shops" />
+        <activity android:name=".Fragments.MainShopsActivity" />
+        <activity android:name=".Fragments.ProfileActivity" />
+        <activity android:name=".MyUtils.Shops" />
         <activity android:name=".MyUI.FundamentalActivity" />
         <activity android:name=".PickImageActivity" />
         <activity android:name=".MyUI.SignUpActivity" />
