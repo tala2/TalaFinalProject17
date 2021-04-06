@@ -1,4 +1,4 @@
-package tala.mubarki.talafinalproject17.Fragments;
+package tala.mubarki.talafinalproject17.MyUtils;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +16,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import tala.mubarki.talafinalproject17.MyUtils.MyValidations;
 import tala.mubarki.talafinalproject17.R;
 
 public class ProfileActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package tala.mubarki.talafinalproject17.MyUI;
+package tala.mubarki.talafinalproject17.Fragments;
 
 import androidx.appcompat.app.AppCompatActivity;
 

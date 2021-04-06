@@ -7,7 +7,7 @@
 
     <activity
         android:id="@+id/firstfragment"
-        android:name="tala.mubarki.talafinalproject17.MyUI.FundamentalActivity"
+        android:name="tala.mubarki.talafinalproject17.Fragments.FundamentalActivity"
         android:label="activity_fundamental"
         tools:layout="@layout/activity_fundamental" />
     <fragment
@@ -22,7 +22,17 @@
         tools:layout="@layout/fragment_shops" />
     <activity
         android:id="@+id/forthfragment"
-        android:name="tala.mubarki.talafinalproject17.Fragments.ProfileActivity"
+        android:name="tala.mubarki.talafinalproject17.MyUtils.ProfileActivity"
         android:label="activity_profile"
         tools:layout="@layout/activity_profile" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="tala.mubarki.talafinalproject17.Fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="tala.mubarki.talafinalproject17.Fragments.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>
