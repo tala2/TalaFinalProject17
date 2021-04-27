@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/thirdfragment">
+    app:startDestination="@id/secondfragment">
 
     <activity
-        android:id="@+id/firstfragment"
+        android:id="@+id/Activity"
         android:name="tala.mubarki.talafinalproject17.Fragments.FundamentalActivity"
         android:label="activity_fundamental"
         tools:layout="@layout/activity_fundamental" />
@@ -14,12 +14,20 @@
         android:id="@+id/thirdfragment"
         android:name="tala.mubarki.talafinalproject17.Fragments.MapsFragment2"
         android:label="fragment_maps2"
-        tools:layout="@layout/fragment_maps2" />
+        tools:layout="@layout/fragment_maps2" >
+        <action
+            android:id="@+id/action_thirdfragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/secondfragment"
         android:name="tala.mubarki.talafinalproject17.Fragments.ShopsFragment"
         android:label="fragment_shops"
-        tools:layout="@layout/fragment_shops" />
+        tools:layout="@layout/fragment_shops" >
+        <action
+            android:id="@+id/action_secondfragment_to_thirdfragment"
+            app:destination="@id/thirdfragment" />
+    </fragment>
     <activity
         android:id="@+id/forthfragment"
         android:name="tala.mubarki.talafinalproject17.MyUtils.ProfileActivity"

@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
-import android.widget.SeekBar;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,7 +37,7 @@ public class SignUpActivity extends AppCompatActivity {
         etEmail2 = findViewById(R.id.etEmail2);//email address
         etPassWord = findViewById(R.id.etPassWord);//password
         etPassWordVarify = findViewById(R.id.etPassWordVarify);//verifying
-        btnSave = findViewById(R.id.btnSave);//save data
+        btnSave = findViewById(R.id.btnSaveAdding);//save data
         btnReturn = findViewById(R.id.btnReturn);//return to the home screen
         scrView= findViewById(R.id.scrView);
         tab=findViewById(R.id.tab);

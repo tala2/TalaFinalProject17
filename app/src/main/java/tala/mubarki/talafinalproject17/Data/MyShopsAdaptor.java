@@ -42,8 +42,6 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
             //what is the best type of this field(tvtype+ tvdiscount)
             TextView tvDiscount=v.findViewById(R.id.itmtVDiscount);
             TextView tvAddress=v.findViewById(R.id.itmTvAddress);
-
-            ImageButton btnDelete=v.findViewById(R.id.itmbtnDelete);
             ImageButton btnEdit=v.findViewById(R.id.imgbtnEdit);
             ImageButton btnSort=v.findViewById(R.id.itmbtnSort);
             ImageButton btnLocation=v.findViewById(R.id.itmbtnLocation);
@@ -76,11 +74,7 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
 
 
             //3.5 events
-            btnDelete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                }
-            });
+
             btnEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

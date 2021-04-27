@@ -29,14 +29,14 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        TvProfile1 = findViewById(R.id.tvProfile1); // title
-        etFirstName = findViewById(R.id.etFirstName1);//first name
-        etLastName = findViewById(R.id.etLastName1);//family name
-        etPhone = findViewById(R.id.etPhone1);//phone number
+        TvProfile1 = findViewById(R.id.tvAdd); // title
+        etFirstName = findViewById(R.id.etAddingType);//first name
+        etLastName = findViewById(R.id.etAddDiscount);//family name
+        etPhone = findViewById(R.id.etcoupon);//phone number
         etEmail2 = findViewById(R.id.etEmail2);//email address
         etPassWord = findViewById(R.id.etPassWord);//password
         etPassWordVarify = findViewById(R.id.etPassWordVarify);//verifying
-        btnSave = findViewById(R.id.btnSave);//save data
+        btnSave = findViewById(R.id.btnSaveAdding);//save data
         btnReturn = findViewById(R.id.btnReturn);//return to the home screen
         scrView= findViewById(R.id.scrView);
         tab=findViewById(R.id.tab);
