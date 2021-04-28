@@ -46,7 +46,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(SearchFragment.this)
-                        .navigate(R.id.action_secondfragment_to_thirdfragment);
+                        .navigate(R.id.action_mapFragment_to_profileFragment);
             }
         });
     }
