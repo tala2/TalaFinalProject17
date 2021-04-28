@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">TalaFinalProject17</string>
     <string name="title_activity_main2">MainActivity2</string>
+    <string-array name="shops">
+        <item>Food</item>
+        <item>Clothes</item>
+        <item>Books</item>
+        <item>HouseHold</item>
+        <item>Agriculture</item>
+    </string-array>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <!-- TODO: Remove or change this placeholder text -->

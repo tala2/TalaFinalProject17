@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TalaFinalProject17">
-        <activity android:name=".MySaleAdding"></activity>
+        <activity android:name=".MyUI.MySaleAdding"></activity>
         <activity android:name=".MyUI.ui.main.OwnerShops" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -33,7 +33,7 @@
         <activity android:name=".Fragments.MainShopsActivity" />
         <activity android:name=".MyUtils.ProfileActivity" />
         <activity android:name=".MyUtils.Shops" />
-        <activity android:name=".Fragments.FundamentalActivity" />
+        <activity android:name=".FundamentalActivity" />
         <activity android:name=".PickImageActivity" />
         <activity android:name=".MyUI.SignUpActivity" />
         <activity android:name=".MyUI.SignInActivity" />

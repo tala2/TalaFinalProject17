@@ -5,6 +5,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -16,10 +17,9 @@ public class MainShopsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        
         super.onCreate(savedInstanceState);
-        bottomNavigationView =findViewById(R.id.bottomNavigationView);
         setContentView(R.layout.activity_main_shops);
+        bottomNavigationView =findViewById(R.id.bottomNavigationView);
         NavHostFragment navHostFragment = (NavHostFragment)getSupportFragmentManager()
                 .findFragmentById(R.id.host_fragment);
         NavigationUI.setupWithNavController(bottomNavigationView,

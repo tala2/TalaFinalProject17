@@ -16,9 +16,6 @@ import tala.mubarki.talafinalproject17.R;
  * create an instance of this fragment.
  */
 public class ShopsFragment extends Fragment {
-
-
-
     private ListView Lstv;
 
 

@@ -3,44 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/secondfragment">
+    app:startDestination="@id/searchFragment">
 
-    <activity
-        android:id="@+id/Activity"
-        android:name="tala.mubarki.talafinalproject17.Fragments.FundamentalActivity"
-        android:label="activity_fundamental"
-        tools:layout="@layout/activity_fundamental" />
     <fragment
-        android:id="@+id/thirdfragment"
-        android:name="tala.mubarki.talafinalproject17.Fragments.MapsFragment2"
-        android:label="fragment_maps2"
-        tools:layout="@layout/fragment_maps2" >
-        <action
-            android:id="@+id/action_thirdfragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/secondfragment"
+        android:id="@+id/shopsList"
         android:name="tala.mubarki.talafinalproject17.Fragments.ShopsFragment"
         android:label="fragment_shops"
         tools:layout="@layout/fragment_shops" >
         <action
-            android:id="@+id/action_secondfragment_to_thirdfragment"
-            app:destination="@id/thirdfragment" />
+            android:id="@+id/action_shopsList_to_mapFragment"
+            app:destination="@id/mapFragment" />
     </fragment>
-    <activity
-        android:id="@+id/forthfragment"
-        android:name="tala.mubarki.talafinalproject17.MyUtils.ProfileActivity"
-        android:label="activity_profile"
-        tools:layout="@layout/activity_profile" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="tala.mubarki.talafinalproject17.Fragments.SearchFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/action_secondFragment_to_secondfragment"
+            app:destination="@id/shopsList" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="tala.mubarki.talafinalproject17.Fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/searchFragment"
-        android:name="tala.mubarki.talafinalproject17.Fragments.SearchFragment"
-        android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        android:id="@+id/mapFragment"
+        android:name="tala.mubarki.talafinalproject17.Fragments.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" >
+        <action
+            android:id="@+id/action_mapFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>

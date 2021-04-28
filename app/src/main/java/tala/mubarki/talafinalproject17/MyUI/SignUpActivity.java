@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import tala.mubarki.talafinalproject17.Fragments.MainShopsActivity;
 import tala.mubarki.talafinalproject17.MyUtils.MyValidations;
 import tala.mubarki.talafinalproject17.R;
 
@@ -45,6 +46,7 @@ public class SignUpActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ///
             }
         });
         btnReturn.setOnClickListener(new View.OnClickListener() {
@@ -104,6 +106,8 @@ public class SignUpActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(SignUpActivity.this,"Successfuly Signing up",Toast.LENGTH_SHORT).show();
+                    Intent i=new Intent(SignUpActivity.this, MainShopsActivity.class);
+                    startActivity(i);
                     finish();
                 }
                 else{

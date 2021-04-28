@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/Activity"
+        android:id="@+id/search"
         android:title="Search" android:icon="@drawable/btnsearch_pressed" />
     <item
-        android:id="@+id/secondfragment"
+        android:id="@+id/shopsList"
         android:title="Shops" android:icon="@drawable/btnshop_pressed" />
     <item
-        android:id="@+id/thirdfragment"
+        android:id="@+id/map1"
         android:title="Map" android:icon="@drawable/btnmap_pressed"/>
     <item
-        android:id="@+id/forthfragment"
+        android:id="@+id/profile"
         android:title="Profile" android:icon="@drawable/ic_baseline_account_circle_24"/>
 </menu>

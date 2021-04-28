@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import tala.mubarki.talafinalproject17.Fragments.MainShopsActivity;
 import tala.mubarki.talafinalproject17.MyUtils.MyValidations;
 import tala.mubarki.talafinalproject17.R;
 //1 xml
@@ -92,7 +93,7 @@ public class SignInActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     //9
-                    Intent i=new Intent(SignInActivity.this,MainActivity.class);
+                    Intent i=new Intent(SignInActivity.this, MainShopsActivity.class);
                     startActivity(i);
                 }
                 else {

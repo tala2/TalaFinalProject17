@@ -4,17 +4,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondFragment">
+    tools:context=".Fragments.SearchFragment">
 
-
-
-    <Button
-        android:id="@+id/button_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/previous"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/imgbtnHOTEST1"
+            android:layout_width="59dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:srcCompat="@drawable/ic_baseline_local_fire_department_24" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:id="@+id/tvTitle1"
+            android:layout_width="match_parent"
+            android:layout_height="107dp"
+            android:fontFamily="@font/allura"
+            android:text="Search Fragment"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/purple_500"
+            android:textSize="36sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+        <EditText
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:ems="10"
+            android:fontFamily="@font/alike"
+            android:inputType="textPersonName"
+            android:text="Location?"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="21dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="42dp" />
+
+        <Spinner
+            android:id="@+id/spinner_sales"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="43dp" />
+
+        <EditText
+            android:id="@+id/discount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/alike"
+            android:inputType="textPersonName"
+            android:text="Discount (between x-y)?"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="123dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnFind1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/common_google_signin_btn_tint"
+                android:fontFamily="@font/alice"
+                android:text="Find"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/black"
+                android:textSize="64sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/previous" />
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

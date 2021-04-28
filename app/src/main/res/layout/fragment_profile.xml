@@ -6,9 +6,164 @@
     tools:context=".Fragments.ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvAdd"
+            android:layout_width="match_parent"
+            android:layout_height="99dp"
+            android:lineSpacingExtra="8sp"
+            android:text="Profile"
+            android:textAlignment="center"
+            android:textAppearance="@style/Widget.Support.CoordinatorLayout"
+
+            android:textSize="36sp"
+            android:typeface="serif"
+            android:visibility="visible"
+            app:autoSizeTextType="uniform" />
+
+        <ScrollView
+            android:id="@+id/scrView"
+            android:layout_width="match_parent"
+            android:layout_height="545dp">
+
+            <TableLayout
+                android:id="@+id/tab"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/etAddingType1"
+                            android:layout_width="203dp"
+                            android:layout_height="82dp"
+                            android:ems="10"
+                            android:hint="Enter Your First Name"
+                            android:inputType="textPersonName"
+                            android:textStyle="bold" />
+
+                        <Space
+                            android:layout_width="128dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <EditText
+                            android:id="@+id/etAddDiscount1"
+                            android:layout_width="199dp"
+                            android:layout_height="81dp"
+                            android:ems="10"
+                            android:hint="Enter Your Last Name"
+                            android:inputType="textPersonName"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/etcoupon1"
+                        android:layout_width="match_parent"
+                        android:layout_height="78dp"
+                        android:ems="10"
+                        android:hint="Phone Number"
+                        android:inputType="phone"
+                        android:textStyle="bold" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="29dp" />
+
+                    <EditText
+                        android:id="@+id/etEmail211"
+                        android:layout_width="match_parent"
+                        android:layout_height="75dp"
+                        android:ems="10"
+                        android:hint="E-mail"
+                        android:inputType="textEmailAddress"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="29dp" />
+
+                    <EditText
+                        android:id="@+id/etPassWord11"
+                        android:layout_width="match_parent"
+                        android:layout_height="75dp"
+                        android:ems="10"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:textStyle="bold" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp" />
+
+                    <EditText
+                        android:id="@+id/etPassWordVarify11"
+                        android:layout_width="match_parent"
+                        android:layout_height="78dp"
+                        android:ems="10"
+                        android:hint="Varify Your Password"
+                        android:inputType="textPassword"
+                        android:textStyle="bold" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnSaveAdding1"
+                            android:layout_width="145dp"
+                            android:layout_height="94dp"
+                            android:backgroundTint="@android:color/black"
+                            android:text="save"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="30sp"
+                            android:textStyle="bold|italic" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:id="@+id/btnReturnadd1"
+                            android:layout_width="175dp"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@android:color/black"
+                            android:text="RETURN"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@android:color/white"
+                            android:textSize="30sp"
+                            android:textStyle="bold|italic" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </TableLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
 
 </FrameLayout>

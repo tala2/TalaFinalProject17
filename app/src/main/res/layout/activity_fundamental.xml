@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.FundamentalActivity">
+    tools:context=".FundamentalActivity">
 
     <ImageButton
-        android:id="@+id/imgbtnHOTEST"
+        android:id="@+id/imgbtnHOTEST1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="9dp"
@@ -15,26 +15,26 @@
         android:layout_marginEnd="245dp"
         android:layout_marginBottom="10dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/tvTitle"
-        app:layout_constraintEnd_toStartOf="@+id/imgbtnPROFILE"
+        app:layout_constraintBottom_toTopOf="@+id/tvTitle1"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnPROFILE1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_local_fire_department_24" />
 
     <ImageButton
-        android:id="@+id/imgbtnPROFILE"
+        android:id="@+id/imgbtnPROFILE1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="10dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnHOTEST"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnHOTEST1"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/tvTitle1"
         android:layout_width="306dp"
         android:layout_height="134dp"
         android:layout_marginStart="52dp"
@@ -48,13 +48,13 @@
         android:textSize="100sp"
         android:textStyle="bold"
         android:typeface="normal"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtnHOTEST" />
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnHOTEST1" />
 
     <Button
-        android:id="@+id/btnFind"
+        android:id="@+id/btnFind1"
         android:layout_width="205dp"
         android:layout_height="81dp"
         android:layout_marginTop="516dp"
@@ -66,34 +66,34 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/black"
         android:textSize="64sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnShop"
+        app:layout_constraintBottom_toTopOf="@+id/btnShop1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnShop"
+        android:id="@+id/btnShop1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="37dp"
         android:layout_marginBottom="3dp"
         android:background="@drawable/custom_shop_icon"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnMap"
-        app:layout_constraintTop_toBottomOf="@+id/btnFind" />
+        app:layout_constraintEnd_toStartOf="@+id/btnMap1"
+        app:layout_constraintTop_toBottomOf="@+id/btnFind1" />
 
     <Button
-        android:id="@+id/btnMap"
+        android:id="@+id/btnMap1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="3dp"
         android:background="@drawable/custom_map"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnShop"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintStart_toEndOf="@+id/btnShop1"
+        app:layout_constraintTop_toBottomOf="@+id/discount" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/location"
         android:layout_width="0dp"
         android:layout_height="78dp"
         android:layout_marginTop="139dp"
@@ -104,13 +104,13 @@
         android:text="Location?"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName3"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toTopOf="@+id/tvTitle" />
+        app:layout_constraintBottom_toBottomOf="@+id/discount"
+        app:layout_constraintEnd_toEndOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintTop_toTopOf="@+id/tvTitle1" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/spinner"
         android:layout_width="413dp"
         android:layout_height="0dp"
         android:layout_marginStart="9dp"
@@ -121,12 +121,12 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
+        app:layout_constraintBottom_toTopOf="@+id/discount"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle1" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/discount"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="7dp"
@@ -138,8 +138,8 @@
         android:text="Discount (yes/no)?"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnMap"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
+        app:layout_constraintBottom_toTopOf="@+id/btnMap1"
+        app:layout_constraintEnd_toEndOf="@+id/spinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

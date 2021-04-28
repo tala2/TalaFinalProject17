@@ -1,4 +1,4 @@
-package tala.mubarki.talafinalproject17.Fragments;
+package tala.mubarki.talafinalproject17;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import tala.mubarki.talafinalproject17.R;
 import tala.mubarki.talafinalproject17.MyUtils.Shops;
 
 //1 xml
@@ -23,9 +22,9 @@ public class FundamentalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //3
         setContentView(R.layout.activity_fundamental);
-        imgbtnHOTEST=findViewById(R.id.imgbtnHOTEST);
-        imgbtnProfile=findViewById(R.id.imgbtnPROFILE);
-        btnFind=findViewById(R.id.btnFind);
+        imgbtnHOTEST=findViewById(R.id.imgbtnHOTEST1);
+        imgbtnProfile=findViewById(R.id.imgbtnPROFILE1);
+        btnFind=findViewById(R.id.btnFind1);
 
         //3
         btnShop.setOnClickListener(new View.OnClickListener() {

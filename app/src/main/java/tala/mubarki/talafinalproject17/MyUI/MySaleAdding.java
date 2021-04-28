@@ -1,4 +1,4 @@
-package tala.mubarki.talafinalproject17;
+package tala.mubarki.talafinalproject17.MyUI;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import tala.mubarki.talafinalproject17.Data.MySale;
-import tala.mubarki.talafinalproject17.Data.Shop;
-import tala.mubarki.talafinalproject17.MyUI.AddShopActivity;
+import tala.mubarki.talafinalproject17.R;
 
 public class MySaleAdding extends AppCompatActivity {
     private Button btnSaveSale,btnReturnSale;
