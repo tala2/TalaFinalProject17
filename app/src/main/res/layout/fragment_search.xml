@@ -60,7 +60,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/tvTitle1"
@@ -88,20 +88,16 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="21dp" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="42dp" />
+            android:layout_height="14dp" />
 
         <Spinner
             android:id="@+id/spinner_sales"
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="58dp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="43dp" />
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/discount"

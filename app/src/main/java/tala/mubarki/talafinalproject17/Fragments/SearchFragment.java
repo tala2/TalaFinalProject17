@@ -29,7 +29,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
 
 
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_second, container, false);
+        View view= inflater.inflate(R.layout.fragment_search, container, false);
         view.findViewById(R.id.spinner_sales);
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(getContext(),
                 R.array.shops,
@@ -46,7 +46,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(SearchFragment.this)
-                        .navigate(R.id.action_mapFragment_to_profileFragment);
+                        .navigate(R.id.action_mapsFragment_to_profileFragment);
             }
         });
     }
@@ -64,7 +64,6 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
     //imgbtnHOTEST=findViewById(R.id.imgbtnHOTEST);
   //  imgbtnProfile=findViewById(R.id.imgbtnPROFILE);
    // btnFind=findViewById(R.id.btnFind);
-
     //3
 
 
