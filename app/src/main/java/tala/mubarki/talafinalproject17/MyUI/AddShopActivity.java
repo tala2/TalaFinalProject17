@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -55,7 +54,7 @@ public class AddShopActivity extends AppCompatActivity {
             //6 save on fireabase
             //6.1 build your data project
             Shop shop= new Shop();
-            shop.setAdress(adress);
+            shop.setAddress(adress);
             shop.setPhone(phone);
             //6.
             saveShop(shop);
@@ -73,7 +72,7 @@ public class AddShopActivity extends AppCompatActivity {
         String key=reference.child("All shops").push().getKey();
         //5
         shop.setOwner(uid);
-        shop.getKey(key);
+        shop.setKey(key);
         //6. actual storing
         reference.child("AllTasls").child(uid).setValue(shop).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

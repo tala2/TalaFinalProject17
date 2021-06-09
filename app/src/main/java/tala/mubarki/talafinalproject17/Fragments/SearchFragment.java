@@ -1,5 +1,6 @@
 package tala.mubarki.talafinalproject17.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,12 +17,16 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+
+import tala.mubarki.talafinalproject17.MyUI.SignInActivity;
 import tala.mubarki.talafinalproject17.R;
 
 public class SearchFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     private ImageButton imgbtnHOTEST,imgbtnProfile;
     private TextView tvTitle;
     private Button btnFind,btnShop,btnMap,btnMore,btnSearch;
+    private Spinner spinner_sales;
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -34,7 +40,25 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(getContext(),
                 R.array.shops,
                 android.R.layout.simple_spinner_item);
+        spinner_sales.setAdapter(adapter);
+        spinner_sales.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i==4){
+                    FirebaseAuth auth=FirebaseAuth.getInstance();
+                    auth.signOut();
+                //    Intent ii=new Intent(SearchFragment.this, SignInActivity.class);
+                  //  startActivity(ii);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
       //  view.setAda(adapter);
       //  view.setOnItemSelected(getContext());
         return view;

@@ -50,7 +50,7 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
             final Shop shop=getItem(position);
             //3.4 connect the dot to the view (view the data using item views)
             tvName.setText(shop.getName());
-            tvAddress.setText(shop.getAdress());
+            tvAddress.setText(shop.getAddress());
             tvType.setText(shop.getType());
             // tvDiscount (how to fill in the dis)
 

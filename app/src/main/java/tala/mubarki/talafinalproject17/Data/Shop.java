@@ -3,8 +3,8 @@ package tala.mubarki.talafinalproject17.Data;
 public class Shop {
     private String key; //id
     private String name;
-    private String adress;
-    private String type;
+    private String address;
+    private String category;
     private double rate;
     private String phone;
     private String owner;
@@ -36,20 +36,20 @@ public class Shop {
         this.name = name;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getType() {
-        return type;
+        return category;
     }
 
     public void setType(String type) {
-        this.type = type;
+        this.category = type;
     }
 
     public double getRate() {
