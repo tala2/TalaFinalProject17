@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+     android:background="@drawable/backgroundprfile"
     tools:context=".MyUI.AddShopActivity">
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,15 +25,16 @@
                     android:id="@+id/btnUpload"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/black"
-
-                    android:text="Uplopad" />
+                    android:backgroundTint="@android:color/white"
+                    android:text="Uplopad"
+                    android:textColor="@color/black" />
 
                 <Button
                     android:id="@+id/btnSaveShop"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/black"
+                    android:backgroundTint="@android:color/white"
+                    android:textColor="@android:color/black"
 
                     android:text="Save" />
 
@@ -58,6 +60,14 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="category"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/editTextTextPersonName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Sale"
                     android:inputType="textPersonName" />
 
                 <LinearLayout

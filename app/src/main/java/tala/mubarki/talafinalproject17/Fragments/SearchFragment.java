@@ -36,10 +36,11 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
 
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_search, container, false);
-        view.findViewById(R.id.spinner_sales);
+        spinner_sales=view.findViewById(R.id.spinner_sales);
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(getContext(),
                 R.array.shops,
                 android.R.layout.simple_spinner_item);
+
         spinner_sales.setAdapter(adapter);
         spinner_sales.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

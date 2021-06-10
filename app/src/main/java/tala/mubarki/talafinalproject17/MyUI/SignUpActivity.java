@@ -46,7 +46,8 @@ public class SignUpActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ///
+
+                validateForm();
             }
         });
         btnReturn.setOnClickListener(new View.OnClickListener() {
@@ -76,11 +77,11 @@ public class SignUpActivity extends AppCompatActivity {
             etPassWordVarify.setError("passwords must be the same!");
         }
         else {
-            MyValidations myValidations = new MyValidations();
-            if (myValidations.validatepassword(passw1) == false) {
-                isOk = false;
-                etPassWord.setError("Invalid Password!");
-            }
+//            MyValidations myValidations = new MyValidations();
+//            if (myValidations.validatepassword(passw1) == false) {
+//                isOk = false;
+//                etPassWord.setError("Invalid Password!");
+//            }
         }
 
         if(isOk)

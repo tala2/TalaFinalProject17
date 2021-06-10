@@ -74,7 +74,7 @@ public class AddShopActivity extends AppCompatActivity {
         shop.setOwner(uid);
         shop.setKey(key);
         //6. actual storing
-        reference.child("AllTasls").child(uid).setValue(shop).addOnCompleteListener(new OnCompleteListener<Void>() {
+        reference.child("AllShops").child(key).setValue(shop).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){

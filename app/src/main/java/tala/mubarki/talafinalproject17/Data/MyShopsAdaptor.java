@@ -37,21 +37,19 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
             //3.1
             View v= LayoutInflater.from(getContext()).inflate(R.layout.item_shop_view1,parent,false);
             //3.2 find view by ID
-            TextView tvName=v.findViewById(R.id.itmTvName);
-            TextView tvType=v.findViewById(R.id.itemTvType);
+            TextView tvName=v.findViewById(R.id.itmTvname);
             //what is the best type of this field(tvtype+ tvdiscount)
             TextView tvDiscount=v.findViewById(R.id.itmtVDiscount);
             TextView tvAddress=v.findViewById(R.id.itmTvAddress);
-            ImageButton btnEdit=v.findViewById(R.id.imgbtnEdit);
-            ImageButton btnSort=v.findViewById(R.id.itmbtnSort);
-            ImageButton btnLocation=v.findViewById(R.id.itmbtnLocation);
+            ImageButton btnEdit=v.findViewById(R.id.imgBtnEdit);
+           // ImageButton btnLocation=v.findViewById(R.id.);
 
             //3.3 get the soutable shop object
             final Shop shop=getItem(position);
             //3.4 connect the dot to the view (view the data using item views)
             tvName.setText(shop.getName());
             tvAddress.setText(shop.getAddress());
-            tvType.setText(shop.getType());
+          //  tvType.setText(shop.getType());
             // tvDiscount (how to fill in the dis)
 
         /* I didnt understand this function
@@ -80,16 +78,16 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
                 public void onClick(View v) {
                 }
             });
-            btnLocation.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                }
-            });
-            btnSort.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                }
-            });
+         //   btnLocation.setOnClickListener(new View.OnClickListener() {
+            //    @Override
+             //   public void onClick(View v) {
+               // }
+         //   });
+//            btnSort.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                }
+//            });
             return v;
 
         }

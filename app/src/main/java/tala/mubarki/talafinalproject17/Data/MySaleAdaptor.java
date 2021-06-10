@@ -30,13 +30,13 @@ public class MySaleAdaptor extends ArrayAdapter<MySale> {
         android.view.View v= LayoutInflater.from(getContext()).inflate(R.layout.item_shop_view1,parent,false);
         //3.2 find view by ID
         TextView tvLastDate=v.findViewById(R.id.itm);
-        TextView tvType=v.findViewById(R.id.itmettype);
+        TextView tvType=v.findViewById(R.id.itmTvCategory);
         TextView tvDiscount=v.findViewById(R.id.itemetDiscount);
         ImageButton btnEdit=v.findViewById(R.id.itemimgAdd);
         ImageButton btnDelete=v.findViewById(R.id.itemimgDelete);
 
 //location
-        //3.3 get the soutable shop object
+        //3.3 get the suitable shop object
         final MySale sale=getItem(position);
         //3.4 connect the dot to the view (view the data using item views)
 //tvDiscount.setText(MySale.g);

@@ -30,7 +30,7 @@ public class SignInActivity extends AppCompatActivity {
         FirebaseAuth auth=FirebaseAuth.getInstance();
         if(auth.getCurrentUser()!=null)//user signed in before
         {
-            Intent i= new Intent(getBaseContext(),MainActivity.class);
+            Intent i= new Intent(getBaseContext(),MainShopsActivity.class);
             finish();
             startActivity(i);
         }

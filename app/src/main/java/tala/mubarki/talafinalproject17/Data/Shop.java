@@ -1,5 +1,7 @@
 package tala.mubarki.talafinalproject17.Data;
 
+import java.util.Date;
+
 public class Shop {
     private String key; //id
     private String name;
@@ -7,8 +9,44 @@ public class Shop {
     private String category;
     private double rate;
     private String phone;
+    private double discountpercent ;//sale
+    private Date Lastdate;//sale
     private String owner;
 
+    public String getKey() {
+        return key;
+    }
+
+    public double getDiscountpercent() {
+        return discountpercent;
+    }
+
+    public void setDiscountpercent(double discountpercent) {
+        this.discountpercent = discountpercent;
+    }
+    public String getDiscountString(){
+        return discountpercent +"";
+    }
+
+    public void setDiscountString(String discountString){
+        this.discountpercent= Double.parseDouble(discountString);
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public Date getLastdate() {
+        return Lastdate;
+    }
+
+    public void setLastdate(Date lastdate) {
+        Lastdate = lastdate;
+    }
     public String getOwner() {
         return owner;
     }
@@ -44,13 +82,6 @@ public class Shop {
         this.address = address;
     }
 
-    public String getType() {
-        return category;
-    }
-
-    public void setType(String type) {
-        this.category = type;
-    }
 
     public double getRate() {
         return rate;

@@ -3,7 +3,7 @@ package tala.mubarki.talafinalproject17.Data;
 import android.location.Location;
 
 import java.util.Date;
-
+//for deleting
 public class MySale {
     private String key; //id
     private String type;
