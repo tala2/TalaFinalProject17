@@ -2,13 +2,23 @@ package tala.mubarki.talafinalproject17.Data;
 
 import java.util.Date;
 
+/**
+ * class for each shop for the user(owner)
+ */
 public class Shop {
+    /**
+     * key: id
+     * name: name of the shop
+     * address: address of the shop
+     * category: kind of the goods
+     * discount: for each shop
+     * lastdate: lastdate of the sale
+     * owner: the owner of the shop
+     */
     private String key; //id
     private String name;
     private String address;
     private String category;
-    private double rate;
-    private String phone;
     private double discountpercent ;//sale
     private Date Lastdate;//sale
     private String owner;
@@ -28,6 +38,10 @@ public class Shop {
         return discountpercent +"";
     }
 
+    /**
+     * the function changes the param from string to dabble
+     * @param discountString: String disscount
+     */
     public void setDiscountString(String discountString){
         this.discountpercent= Double.parseDouble(discountString);
     }
@@ -80,22 +94,5 @@ public class Shop {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-
-    public double getRate() {
-        return rate;
-    }
-
-    public void setRate(double rate) {
-        this.rate = rate;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 }

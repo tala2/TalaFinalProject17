@@ -22,7 +22,7 @@ public class FundamentalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //3
         setContentView(R.layout.activity_fundamental);
-        imgbtnHOTEST=findViewById(R.id.imgbtnHOTEST1);
+        imgbtnHOTEST=findViewById(R.id.imgbtnHotst);
         imgbtnProfile=findViewById(R.id.imgbtnPROFILE1);
         btnFind=findViewById(R.id.btnFind1);
 

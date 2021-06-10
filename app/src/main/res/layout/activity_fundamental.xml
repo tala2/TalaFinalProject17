@@ -7,7 +7,7 @@
     tools:context=".FundamentalActivity">
 
     <ImageButton
-        android:id="@+id/imgbtnHOTEST1"
+        android:id="@+id/imgbtnHotst"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="9dp"
@@ -15,7 +15,7 @@
         android:layout_marginEnd="245dp"
         android:layout_marginBottom="10dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/tvTitle1"
+        app:layout_constraintBottom_toTopOf="@+id/tvTitle"
         app:layout_constraintEnd_toStartOf="@+id/imgbtnPROFILE1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,12 +29,12 @@
         android:layout_marginEnd="10dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnHOTEST1"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnHotst"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
     <TextView
-        android:id="@+id/tvTitle1"
+        android:id="@+id/tvTitle"
         android:layout_width="306dp"
         android:layout_height="134dp"
         android:layout_marginStart="52dp"
@@ -51,7 +51,7 @@
         app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtnHOTEST1" />
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnHotst" />
 
     <Button
         android:id="@+id/btnFind1"
@@ -93,7 +93,7 @@
         app:layout_constraintTop_toBottomOf="@+id/discount" />
 
     <EditText
-        android:id="@+id/location"
+        android:id="@+id/EtLocation"
         android:layout_width="0dp"
         android:layout_height="78dp"
         android:layout_marginTop="139dp"
@@ -107,7 +107,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/discount"
         app:layout_constraintEnd_toEndOf="@+id/spinner"
         app:layout_constraintStart_toStartOf="@+id/spinner"
-        app:layout_constraintTop_toTopOf="@+id/tvTitle1" />
+        app:layout_constraintTop_toTopOf="@+id/tvTitle" />
 
     <EditText
         android:id="@+id/spinner"
@@ -123,7 +123,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/discount"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle1" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <EditText
         android:id="@+id/discount"

@@ -55,7 +55,6 @@ public class AddShopActivity extends AppCompatActivity {
             //6.1 build your data project
             Shop shop= new Shop();
             shop.setAddress(adress);
-            shop.setPhone(phone);
             //6.
             saveShop(shop);
         }

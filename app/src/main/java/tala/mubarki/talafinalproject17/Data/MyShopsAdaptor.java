@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -31,26 +32,28 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
          * @return
          */
     }
+
     @NonNull
     @Override
-        public View getView(int position,@Nullable View convertView, @NonNull ViewGroup parent) {
-            //3.1
-            View v= LayoutInflater.from(getContext()).inflate(R.layout.item_shop_view1,parent,false);
-            //3.2 find view by ID
-            TextView tvName=v.findViewById(R.id.itmTvname);
-            //what is the best type of this field(tvtype+ tvdiscount)
-            TextView tvDiscount=v.findViewById(R.id.itmtVDiscount);
-            TextView tvAddress=v.findViewById(R.id.itmTvAddress);
-            ImageButton btnEdit=v.findViewById(R.id.imgBtnEdit);
-           // ImageButton btnLocation=v.findViewById(R.id.);
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        //3.1
+        View v = LayoutInflater.from(getContext()).inflate(R.layout.item_shop_view1, parent, false);
+        //3.2 find view by ID
+        ImageButton btnDelete = v.findViewById(R.id.imgBtnDelete);
+        TextView tvName = v.findViewById(R.id.itmTvname);
+        //what is the best type of this field(tvtype+ tvdiscount)
+        TextView tvDiscount = v.findViewById(R.id.itmtVDiscount);
+        TextView tvAddress = v.findViewById(R.id.itmTvAddress);
+        ImageButton btnEdit = v.findViewById(R.id.imgBtnEdit);
+        // ImageButton btnLocation=v.findViewById(R.id.);
 
-            //3.3 get the soutable shop object
-            final Shop shop=getItem(position);
-            //3.4 connect the dot to the view (view the data using item views)
-            tvName.setText(shop.getName());
-            tvAddress.setText(shop.getAddress());
-          //  tvType.setText(shop.getType());
-            // tvDiscount (how to fill in the dis)
+        //3.3 get the soutable shop object
+        final Shop shop = getItem(position);
+        //3.4 connect the dot to the view (view the data using item views)
+        tvName.setText(shop.getName());
+        tvAddress.setText(shop.getAddress());
+        //  tvType.setText(shop.getType());
+        // tvDiscount (how to fill in the dis)
 
         /* I didnt understand this function
         switch(shop.getAdress()){
@@ -70,25 +73,20 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
          */
 
 
+        //3.5 events
 
-            //3.5 events
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-            btnEdit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                }
-            });
-         //   btnLocation.setOnClickListener(new View.OnClickListener() {
-            //    @Override
-             //   public void onClick(View v) {
-               // }
-         //   });
-//            btnSort.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                }
-//            });
-            return v;
+            }
+        });
+        return v;
+    }
 
-        }
 }

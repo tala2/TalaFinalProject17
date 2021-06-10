@@ -26,7 +26,5 @@ public class ShopsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_shops, container, false);
         Lstv= view.findViewById(R.id.lstvShops);
        return view;
-
-
     }
 }

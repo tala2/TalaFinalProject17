@@ -62,7 +62,7 @@
                             android:layout_weight="1" />
 
                         <EditText
-                            android:id="@+id/etAddDiscount1"
+                            android:id="@+id/etLastName"
                             android:layout_width="199dp"
                             android:layout_height="81dp"
                             android:ems="10"
@@ -73,26 +73,12 @@
                     </LinearLayout>
 
                     <EditText
-                        android:id="@+id/etcoupon1"
+                        android:id="@+id/etPhone"
                         android:layout_width="match_parent"
                         android:layout_height="78dp"
                         android:ems="10"
                         android:hint="Phone Number"
                         android:inputType="phone"
-                        android:textStyle="bold" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="29dp" />
-
-                    <EditText
-                        android:id="@+id/etEmail211"
-                        android:layout_width="match_parent"
-                        android:layout_height="75dp"
-                        android:ems="10"
-                        android:hint="E-mail"
-                        android:inputType="textEmailAddress"
-                        android:textColor="#FFFFFF"
                         android:textStyle="bold" />
 
                     <Space

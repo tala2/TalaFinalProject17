@@ -5,107 +5,114 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MyUI.SignInActivity">
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView"
-                android:fontFamily="cursive"
-                android:textStyle="bold"
-                android:textAppearance="@style/Widget.Support.CoordinatorLayout"
-                android:layout_width="match_parent"
-                android:layout_height="117dp"
-                android:lineSpacingExtra="30sp"
-                android:text="Sign In"
-                android:textAlignment="center"
-                android:textSize="@android:dimen/notification_large_icon_width" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="103dp" />
-
-            <EditText
-                android:id="@+id/ettEmailAddress"
-                android:layout_width="match_parent"
-                android:layout_height="67dp"
-                android:background="@drawable/custom_input_icon"
-                android:drawableStart="@drawable/ic_email"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="Enter Your E-mail"
-                android:inputType="textEmailAddress"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="47dp" />
-
-            <EditText
-                android:background="@drawable/custom_input_icon"
-                android:id="@+id/editTextTextPassword"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:ems="10"
-                android:drawableStart="@drawable/ic_lock"
-                android:drawablePadding="12dp"
-                android:hint="Enter Your Password"
-                android:inputType="textPassword" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="43dp" />
-
-            <Button
-                android:id="@+id/btnSignIn"
-                style="@style/Base.CardView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@android:color/holo_purple"
-                android:text="Signin" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="16dp" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btnForgetPass"
-                    style="@style/Base.CardView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-                    android:backgroundTint="@android:color/secondary_text_dark_nodisable"
-                    android:stateListAnimator="@android:anim/fade_in"
-                    android:text="Forget my password"
-                    app:iconTint="@color/purple_200"
-                    app:rippleColor="@color/black" />
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="117dp"
+                    android:fontFamily="cursive"
+                    android:lineSpacingExtra="30sp"
+                    android:text="Sign In"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/Widget.Support.CoordinatorLayout"
+                    android:textSize="@android:dimen/notification_large_icon_width"
+                    android:textStyle="bold" />
 
                 <Space
-                    android:layout_width="80dp"
-                    android:layout_height="19dp" />
+                    android:layout_width="match_parent"
+                    android:layout_height="103dp" />
+
+                <EditText
+                    android:id="@+id/ettEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="67dp"
+                    android:background="@drawable/custom_input_icon"
+                    android:drawableStart="@drawable/ic_email"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:hint="Enter Your E-mail"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp" />
+
+                <EditText
+                    android:id="@+id/editTextTextPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:background="@drawable/custom_input_icon"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:hint="Enter Your Password"
+                    android:inputType="textPassword"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp" />
 
                 <Button
-                    android:id="@+id/btnSignup"
+                    android:id="@+id/btnSignIn"
                     style="@style/Base.CardView"
-                    android:layout_width="185dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/secondary_text_dark_nodisable"
-                    android:text="SignUp" />
-            </LinearLayout>
+                    android:backgroundTint="@android:color/holo_purple"
+                    android:text="Signin" />
 
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnForgetPass"
+                        style="@style/Base.CardView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:backgroundTint="@android:color/secondary_text_dark_nodisable"
+                        android:stateListAnimator="@android:anim/fade_in"
+                        android:text="Forget my password"
+                        app:iconTint="@color/purple_200"
+                        app:rippleColor="@color/black" />
+
+                    <Space
+                        android:layout_width="80dp"
+                        android:layout_height="19dp" />
+
+                    <Button
+                        android:id="@+id/btnSignup"
+                        style="@style/Base.CardView"
+                        android:layout_width="185dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/secondary_text_dark_nodisable"
+                        android:text="SignUp" />
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

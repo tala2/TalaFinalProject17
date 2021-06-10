@@ -28,7 +28,7 @@
         <ScrollView
             android:id="@+id/scrView"
             android:layout_width="match_parent"
-            android:layout_height="545dp">
+            android:layout_height="640dp">
 
             <TableLayout
                 android:id="@+id/tab"
@@ -47,16 +47,13 @@
                         android:orientation="horizontal">
 
 
-
                         <Space
                             android:layout_width="128dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1" />
 
 
-
                     </LinearLayout>
-
 
 
                     <Space
