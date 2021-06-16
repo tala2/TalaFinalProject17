@@ -16,7 +16,7 @@
             android:orientation="vertical" >
 
             <Button
-                android:id="@+id/btnSecond"
+                android:id="@+id/btnPrev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/previous" />
@@ -76,9 +76,9 @@
                 android:layout_height="14dp" />
 
             <Spinner
-                android:id="@+id/spinner_sales"
+                android:id="@+id/spinner_shops"
                 android:layout_width="match_parent"
-                android:layout_height="72dp" />
+                android:layout_height="76dp" />
 
             <Space
                 android:layout_width="match_parent"

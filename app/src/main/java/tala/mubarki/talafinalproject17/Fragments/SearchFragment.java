@@ -21,6 +21,8 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
 import tala.mubarki.talafinalproject17.MyUI.SignInActivity;
+import tala.mubarki.talafinalproject17.MyUI.SignUpActivity;
+import tala.mubarki.talafinalproject17.MyUtils.ProfileActivity;
 import tala.mubarki.talafinalproject17.R;
 
 public class SearchFragment extends Fragment implements AdapterView.OnItemSelectedListener {
@@ -38,10 +40,10 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
         View view= inflater.inflate(R.layout.fragment_search, container, false);
         btnFind=view.findViewById(R.id.btnFind1);
         btnLocation=view.findViewById(R.id.btnLocation);
-        btnSecond=view.findViewById(R.id.btnSecond);
+        btnSecond=view.findViewById(R.id.btnPrev);
         etAdress=view.findViewById(R.id.EtAdress);
         etLocation=view.findViewById(R.id.EtLocation);
-        spinner_shops=view.findViewById(R.id.spinner_sales);
+        spinner_shops=view.findViewById(R.id.spinner_shops);
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(getContext(),
                 R.array.shops,
                 android.R.layout.simple_spinner_item);
@@ -53,8 +55,6 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
                 if (i==4){
                     FirebaseAuth auth=FirebaseAuth.getInstance();
                     auth.signOut();
-                //  Intent ii=new Intent(SearchFragment.this, SignInActivity.class);
-                   // startActivity(ii);
                 }
             }
 
@@ -64,32 +64,32 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
             }
         });
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-      //  view.setAda(adapter);
-      //  view.setOnItemSelected(getContext());
         return view;
     }
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        view.findViewById(R.id.btnSecond).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btnPrev).setOnClickListener(new View.OnClickListener() {
+           @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(SearchFragment.this).navigate(R.id.action_mapsFragment_to_searchFragment);
+            }
+        });
+        view.findViewById(R.id.btnPrev).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SearchFragment.this)
-                        .navigate(R.id.action_mapsFragment_to_profileFragment);
+                Intent i=new Intent(getContext(), ProfileActivity.class);
+                startActivity(i);
             }
         });
     }
-//??
+//?
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         String selectedShops=adapterView.getItemAtPosition(i).toString();
         Toast.makeText(getContext(),selectedShops,Toast.LENGTH_SHORT).show();
     }
 //??
-
-
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
 }

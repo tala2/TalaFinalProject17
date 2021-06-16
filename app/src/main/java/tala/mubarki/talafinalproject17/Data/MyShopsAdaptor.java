@@ -16,8 +16,7 @@ import tala.mubarki.talafinalproject17.R;
 
 public class MyShopsAdaptor extends ArrayAdapter<Shop> {
     /**
-     * constractor
-     *
+     * constructor
      * @param context  the activity of (app) that this adapter belong to
      * @param resource XML  design of the item
      */
@@ -42,9 +41,15 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
         ImageButton btnDelete = v.findViewById(R.id.imgBtnDelete);
         TextView tvName = v.findViewById(R.id.itmTvname);
         //what is the best type of this field(tvtype+ tvdiscount)
+        //sale
         TextView tvDiscount = v.findViewById(R.id.itmtVDiscount);
+        //location
         TextView tvAddress = v.findViewById(R.id.itmTvAddress);
+        //edit
         ImageButton btnEdit = v.findViewById(R.id.imgBtnEdit);
+        //category
+        TextView tvCategory=v.findViewById(R.id.itmTvCategory);
+
         // ImageButton btnLocation=v.findViewById(R.id.);
 
         //3.3 get the soutable shop object
@@ -52,7 +57,8 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
         //3.4 connect the dot to the view (view the data using item views)
         tvName.setText(shop.getName());
         tvAddress.setText(shop.getAddress());
-        //  tvType.setText(shop.getType());
+        tvDiscount.setText(shop.getDiscountString());
+        tvCategory.setText(shop.getCategory());
         // tvDiscount (how to fill in the dis)
 
         /* I didnt understand this function
@@ -88,5 +94,5 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
         });
         return v;
     }
-
+//read and
 }

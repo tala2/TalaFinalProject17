@@ -87,17 +87,6 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/btnForgetPass"
-                        style="@style/Base.CardView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:backgroundTint="@android:color/secondary_text_dark_nodisable"
-                        android:stateListAnimator="@android:anim/fade_in"
-                        android:text="Forget my password"
-                        app:iconTint="@color/purple_200"
-                        app:rippleColor="@color/black" />
-
                     <Space
                         android:layout_width="80dp"
                         android:layout_height="19dp" />

@@ -19,7 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import tala.mubarki.talafinalproject17.Fragments.MainShopsActivity;
-import tala.mubarki.talafinalproject17.MyUtils.MyValidations;
+import tala.mubarki.talafinalproject17.MyUtils.ProfileActivity;
 import tala.mubarki.talafinalproject17.R;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -27,7 +27,7 @@ public class SignUpActivity extends AppCompatActivity {
     private TextView TvSignUp;
     private ScrollView scrView;
     private TableLayout tab;
-    private EditText etEmail2,etPassWord,etPassWordVarify;
+    private EditText etEmail2,etPassWord, etPassWordVerify;
     private Button btnSave,btnReturn;
 
     @Override
@@ -37,30 +37,20 @@ public class SignUpActivity extends AppCompatActivity {
         TvSignUp = findViewById(R.id.tvSignUp); // title
         etEmail2 = findViewById(R.id.etEmail2);//email address
         etPassWord = findViewById(R.id.etPassWord);//password
-        etPassWordVarify = findViewById(R.id.etPassWordVarify);//verifying
+        etPassWordVerify = findViewById(R.id.etPassWordVarify);//verifying
         btnSave = findViewById(R.id.btnSaveAdding);//save data
-        btnReturn = findViewById(R.id.btnReturn);//return to the home screen
         scrView= findViewById(R.id.scrView);
         tab=findViewById(R.id.tab);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 validateForm();
-            }
-        });
-        btnReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //return to the home screen
-                Intent i=new Intent(SignUpActivity.this,HomeScreenActivity.class);
-                startActivity(i);
             }
         });
     }
     private void validateForm() {
-        String passw2 = etPassWordVarify.getText().toString();
+        String passw2 = etPassWordVerify.getText().toString();
         String passw1 = etPassWord.getText().toString();
         String email = etEmail2.getText().toString();
 
@@ -74,10 +64,10 @@ public class SignUpActivity extends AppCompatActivity {
         if(passw1.equals(passw2)==false)
         {
             isOk=false;
-            etPassWordVarify.setError("passwords must be the same!");
+            etPassWordVerify.setError("passwords must be the same!");
         }
         else {
-//            MyValidations myValidations = new MyValidations();
+      //     MyValidations myValidations = new MyValidations();
 //            if (myValidations.validatepassword(passw1) == false) {
 //                isOk = false;
 //                etPassWord.setError("Invalid Password!");
@@ -91,7 +81,6 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
     }
-
     /**
      *  @param email
      * @param passw1
@@ -107,7 +96,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(SignUpActivity.this,"Successfuly Signing up",Toast.LENGTH_SHORT).show();
-                    Intent i=new Intent(SignUpActivity.this, MainShopsActivity.class);
+                    Intent i=new Intent(SignUpActivity.this, ProfileActivity.class);
                     startActivity(i);
                     finish();
                 }

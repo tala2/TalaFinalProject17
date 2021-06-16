@@ -13,7 +13,6 @@ public class MyValidations {
     }
 
     public boolean validatepassword(final String password) {
-
         matcher = pattern.matcher(password);
         boolean matches = matcher.matches();
         return matches;

@@ -3,9 +3,13 @@ package tala.mubarki.talafinalproject17.MyUtils;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -13,9 +17,15 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import tala.mubarki.talafinalproject17.Data.Customer;
+import tala.mubarki.talafinalproject17.Data.Owner;
+import tala.mubarki.talafinalproject17.Fragments.MainShopsActivity;
+import tala.mubarki.talafinalproject17.MyUI.SignInActivity;
+import tala.mubarki.talafinalproject17.MyUI.ui.main.OwnerShops;
 import tala.mubarki.talafinalproject17.R;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -24,95 +34,133 @@ public class ProfileActivity extends AppCompatActivity {
     private TableLayout tab;
     private EditText etFirstName,etLastName,etPhone,etEmail2,etPassWord,etPassWordVarify;
     private Button btnSave,btnReturn;
+    private RadioButton radioOwner, radioCustomer;
+    private RadioGroup radioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         TvProfile1 = findViewById(R.id.tvAdd); // title
-        etFirstName = findViewById(R.id.etAddingType);//first name
-        etLastName = findViewById(R.id.etAddDiscount);//family name
-        etPhone = findViewById(R.id.etcoupon);//phone number
-        etEmail2 = findViewById(R.id.etEmail2);//email address
-        etPassWord = findViewById(R.id.etPassWord);//password
-        etPassWordVarify = findViewById(R.id.etPassWordVarify);//verifying
-        btnSave = findViewById(R.id.btnSaveAdding);//save data
-        btnReturn = findViewById(R.id.btnReturn);//return to the home screen
+        etFirstName = findViewById(R.id.etFirstName);//first name
+        etLastName = findViewById(R.id.etLastName);//family name
+        etPhone = findViewById(R.id.etPhone);//phone number
+        btnSave = findViewById(R.id.btnSaveAdding1);//save data
+        btnReturn = findViewById(R.id.btnReturnadd1);//return to Sign Up screen
         scrView= findViewById(R.id.scrView);
         tab=findViewById(R.id.tab);
-
+        radioCustomer=findViewById(R.id.customer);
+        radioOwner=findViewById(R.id.owner);
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                validateForm();
+            }
+        });
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(ProfileActivity.this, SignInActivity.class);
+                startActivity(i);
+            }
+        });
     }
+
     private void validateForm() {
-        String passw2 = etPassWordVarify.getText().toString();
-        String passw1 = etPassWord.getText().toString();
         String fname = etFirstName.getText().toString();
         String lname = etLastName.getText().toString();
         String phone = etPhone.getText().toString();
-        String email = etEmail2.getText().toString();
 
         boolean isOk = true;
         if (fname.length() < 2)
         {
             isOk = false;
             etFirstName.setError("At least to letters");
+
         }
-        if (email.length() < 5 || email.indexOf('@') == 0 || email.indexOf('@') >= email.length() - 2 ||
-                email.indexOf('.') == 0 || email.indexOf('.') > email.length() - 1 || email.lastIndexOf('.') < email.indexOf('@'))
-        {
-            isOk = false;
-            etEmail2.setError("Wrong Email Address Please Rewrite");
-        }
-        if(passw1.equals(passw2)==false)
-        {
+        if(lname.length()==0){
             isOk=false;
-            etPassWordVarify.setError("passwords must be the same!");
+            etLastName.setError("Wrong LastName");
         }
-        else {
-            MyValidations myValidations = new MyValidations();
-            if (myValidations.validatepassword(passw1) == false) {
-                isOk = false;
-                etPassWord.setError("Invalid Password!");
+        if (isOk){
+            //6 save on fireabase
+            //6.1 build your data project
+            if(radioCustomer.isChecked())
+            {
+                Customer customer= new Customer();
+                customer.setName(fname);
+                customer.setPhone(phone);
+                customer.setLastName(lname);
+                //6.
+                saveCustomer(customer);
+            }
+            if(radioCustomer.isChecked()){
+                Owner owner=new Owner();
+                owner.setName(fname);
+                owner.setPhone(phone);
+                owner.setLastName(lname);
+                //6.
+                saveOwner(owner);
             }
         }
-////
-        if(isOk)
-        {
-            //toDo: create account and return to sign in screen/close this screen
-            createNewAccount(email,passw1,fname,lname,phone);
-        }
-
     }
-/////
-   // private void uploadprofile()
-    /**
-     *
-     * @param email
-     * @param passw1
-     * @param fname
-     * @param lname
-     * @param phone
-     */
-    private void createNewAccount(String email, String passw1, String fname, String lname, String phone)
-    {//1
+
+    private void saveCustomer(Customer customer) {
+        FirebaseDatabase database=FirebaseDatabase.getInstance();
+        //2.
+        DatabaseReference reference=database.getReference();
+        //3. user id
         FirebaseAuth auth=FirebaseAuth.getInstance();
-        //
-        //2
-        OnCompleteListener<AuthResult> listener=new OnCompleteListener<AuthResult>() {
-            //RESPONS
+        String uid=auth.getCurrentUser().getUid();
+        //4. My object key
+        String key=reference.child("All Customers").push().getKey();
+        //5
+        customer.setOwner(uid);
+        customer.setKey(key);
+        //6. actual storing
+        reference.child("All Customers").child(key).setValue(customer).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+            public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(ProfileActivity.this,"Successfuly Signing up",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileActivity.this,"add successful",Toast.LENGTH_SHORT).show();
+                    Intent i=new Intent(ProfileActivity.this, MainShopsActivity.class);
+                    startActivity(i);
                     finish();
                 }
                 else{
-                    Toast.makeText(ProfileActivity.this,"Signing up, Failed"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-                    etEmail2.setError("Signing up, Failed"+task.getException().getMessage());
+                    Toast.makeText(ProfileActivity.this,"add failed"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                    task.getException().printStackTrace();
                 }
-
             }
-        };
-        //3
-        auth.createUserWithEmailAndPassword(email,passw1).addOnCompleteListener(listener);
+        });
+    }
+    private void saveOwner(Owner owner) {
+        FirebaseDatabase database=FirebaseDatabase.getInstance();
+        //2.
+        DatabaseReference reference=database.getReference();
+        //3. user id
+        FirebaseAuth auth=FirebaseAuth.getInstance();
+        String uid=auth.getCurrentUser().getUid();
+        //4. My object key
+        String key=reference.child("All Owners").push().getKey();
+        //5
+        owner.setOwner(uid);
+        owner.setKey(key);
+        //6. actual storing
+        reference.child("All Owners").child(key).setValue(owner).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()) {
+                    Toast.makeText(ProfileActivity.this, "add successful", Toast.LENGTH_SHORT).show();
+                    Intent i=new Intent(ProfileActivity.this, OwnerShops.class);
+                    startActivity(i);
+                    finish();
+                }
+                else{
+                    Toast.makeText(ProfileActivity.this,"add failed"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                    task.getException().printStackTrace();
+                }
+            }
+        });
     }
 }

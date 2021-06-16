@@ -17,24 +17,19 @@
     <fragment
         android:id="@+id/searchFragment"
         android:name="tala.mubarki.talafinalproject17.Fragments.SearchFragment"
-        android:label="fragment_second"
-        tools:layout="@layout/fragment_search" >
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_secondFragment_to_secondfragment"
             app:destination="@id/shopsList" />
     </fragment>
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="tala.mubarki.talafinalproject17.Fragments.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/mapsFragment"
         android:name="tala.mubarki.talafinalproject17.Fragments.MapsFragment"
         android:label="fragment_maps"
         tools:layout="@layout/fragment_maps" >
         <action
-            android:id="@+id/action_mapsFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            android:id="@+id/action_mapsFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
 </navigation>

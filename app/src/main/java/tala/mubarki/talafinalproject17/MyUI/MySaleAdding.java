@@ -28,8 +28,8 @@ public class MySaleAdding extends AppCompatActivity {
         setContentView(R.layout.activity_my_sale_adding);
         //3 find view by id
         setContentView(R.layout.activity_add_shop);
-        etCoupon=findViewById(R.id.etcoupon);
-        etDiscount=findViewById(R.id.etAddDiscount);
+        //etCoupon=findViewById(R.id.etcoupon);
+      //  etDiscount=findViewById(R.id.etAddDiscount);
         etType=findViewById(R.id.etAddingType);
         //4 listner
         btnSaveSale.setOnClickListener(new View.OnClickListener() {
