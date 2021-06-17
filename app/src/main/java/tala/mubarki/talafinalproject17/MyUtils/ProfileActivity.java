@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import tala.mubarki.talafinalproject17.Data.Customer;
 import tala.mubarki.talafinalproject17.Data.Owner;
 import tala.mubarki.talafinalproject17.Fragments.MainShopsActivity;
+import tala.mubarki.talafinalproject17.Fragments.MainTabsShopsActivity;
 import tala.mubarki.talafinalproject17.MyUI.SignInActivity;
 import tala.mubarki.talafinalproject17.MyUI.ui.main.OwnerShops;
 import tala.mubarki.talafinalproject17.R;
@@ -123,7 +124,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(ProfileActivity.this,"add successful",Toast.LENGTH_SHORT).show();
-                    Intent i=new Intent(ProfileActivity.this, MainShopsActivity.class);
+                    Intent i=new Intent(ProfileActivity.this, MainTabsShopsActivity.class);
                     startActivity(i);
                     finish();
                 }

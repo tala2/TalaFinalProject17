@@ -2,16 +2,11 @@
     <string name="app_name">TalaFinalProject17</string>
     <string name="title_activity_main2">MainActivity2</string>
     //
-    <string-array name="shops">
-        <item>Food</item>
-        <item>Clothes</item>
-        <item>Books</item>
-        <item>HouseHold</item>
-        <item>Agriculture</item>
-    </string-array>
-    //
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+
+    <string name="tab_search">search</string>
+    <string name="tab_Shops">shops</string>
+    <string name="tab_Map">map</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_owner_shops">OwnerShops</string>
@@ -26,11 +21,15 @@
     <string name="title_activity_maps_example">Map</string>
 
     <string-array name="kind">
-        <item>category</item>
-        <item>shopping</item>
-        <item>restaurants</item>
+        <item>Clothes</item>
+        <item>Food</item>
         <item>park</item>
+        <item>Books</item>
+        <item>HouseHold</item>
         <item>pet shop</item>
         <item>Sign out</item>
     </string-array>
+
+
+    <string name="title_activity_main_tabs_shops">MainTabsShopsActivity</string>
 </resources>

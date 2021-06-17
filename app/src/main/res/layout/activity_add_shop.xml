@@ -4,101 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-     android:background="@drawable/backgroundprfile"
+     android:background="@android:color/white"
     tools:context=".MyUI.AddShopActivity">
-    <LinearLayout
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:fillViewport="true">
 
-        <androidx.core.widget.NestedScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <LinearLayout
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="117dp"
+                android:fontFamily="cursive"
+                android:lineSpacingExtra="30sp"
+                android:textAlignment="center"
+                android:textAppearance="@style/Widget.Support.CoordinatorLayout"
+                android:textSize="@android:dimen/notification_large_icon_width"
+                android:textStyle="bold"
+                android:text="New Shop" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:background="@drawable/custom_input_icon"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Enter Email Adress"
+                android:inputType="textEmailAddress" />
+
+            <Spinner
+                android:id="@+id/spinner_categ"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="@drawable/custom_input_icon"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:background="@drawable/custom_input_icon"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Sale"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:background="@drawable/custom_input_icon"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Enter your location"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/btnSaveShop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:backgroundTint="@android:color/holo_purple"
+                android:text="Save" />
 
-                <Button
-                    android:id="@+id/btnUpload"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/white"
-                    android:text="Uplopad"
-                    android:textColor="@color/black" />
+            <Space
+                android:layout_width="427dp"
+                android:layout_height="472dp" />
 
-                <Button
-                    android:id="@+id/btnSaveShop"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/white"
-                    android:textColor="@android:color/black"
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-                    android:text="Save" />
-
-                <EditText
-                    android:id="@+id/etEmailAdress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Enter Email Adress"
-                    android:inputType="textEmailAddress" />
-
-                <EditText
-                    android:id="@+id/EtPhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Enter phone"
-                    android:inputType="phone" />
-
-                <EditText
-                    android:id="@+id/EtCategory"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="category"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/editTextTextPersonName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Sale"
-                    android:inputType="textPersonName" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <ImageButton
-                        android:id="@+id/imageButton"
-                        android:layout_width="178dp"
-                        android:layout_height="wrap_content"
-                        android:src="@android:drawable/ic_menu_mylocation" />
-
-                    <Space
-                        android:layout_width="54dp"
-                        android:layout_height="22dp"
-                        android:layout_weight="1" />
-
-                    <EditText
-                        android:id="@+id/EdLocation"
-                        android:layout_width="162dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="Enter your location"
-                        android:inputType="textPersonName" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

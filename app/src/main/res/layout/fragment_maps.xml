@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
 
     xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <Spinner
+        android:id="@+id/spinner_filter"
+        android:layout_width="match_parent"
+        android:layout_height="101dp" />
+
+    <Button
+        android:id="@+id/imageButton2"
+        android:layout_width="78dp"
+        android:layout_height="64dp"
+        android:background="@drawable/ic_baseline_filter" />
+
+
+
 
     <fragment
         android:id="@+id/map"
@@ -17,4 +32,5 @@
         android:id="@+id/shops_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </LinearLayout>

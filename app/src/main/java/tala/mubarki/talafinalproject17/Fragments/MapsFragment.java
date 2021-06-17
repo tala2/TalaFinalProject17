@@ -20,7 +20,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -40,6 +43,7 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.maps.model.RoundCap;
 import com.google.android.gms.maps.model.SquareCap;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -52,10 +56,15 @@ public class MapsFragment extends Fragment {
     private LocationRequest mLocationRequest;
     private Location mLastLocation;
     Marker mCurrLocationMarker;
+    private Spinner spinner_filter;
+
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
         @Override
         public void onMapReady(GoogleMap googleMap) {
             mMap = googleMap;
+            mLocationRequest = new LocationRequest();
+            mLocationRequest.setInterval(1000*6); //1000MS=1S
+            mLocationRequest.setFastestInterval(1000*6);
             mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
             if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (ContextCompat.checkSelfPermission(getContext(),
@@ -139,10 +148,8 @@ public class MapsFragment extends Fragment {
                 markerOptions.position(latLng);
                 markerOptions.title("Current Position");
                 Toast.makeText(getContext(), "Current Position", Toast.LENGTH_SHORT).show();
-
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
                 mCurrLocationMarker = mMap.addMarker(markerOptions);
-
                 //move map camera
                 // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11));
             }
@@ -156,7 +163,22 @@ public class MapsFragment extends Fragment {
 
         View view= inflater.inflate(R.layout.fragment_maps, container, false);
         lst1=view.findViewById(R.id.shops_list);
+        spinner_filter=view.findViewById(R.id.spinner_filter);
+        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(getContext(),R.array.kind, android.R.layout.simple_spinner_item);
+        spinner_filter.setAdapter(adapter);
+        spinner_filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i==4){
+                    FirebaseAuth auth=FirebaseAuth.getInstance();
+                    auth.signOut();
+                }
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
         return view;
     }
 
@@ -230,6 +252,15 @@ public class MapsFragment extends Fragment {
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                         MY_PERMISSIONS_REQUEST_LOCATION );
             }
+        }
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        //stop location updates when Activity is no longer active
+        if (fusedLocationClient != null) {
+            fusedLocationClient.removeLocationUpdates(mLocationCallback);
         }
     }
     @Override

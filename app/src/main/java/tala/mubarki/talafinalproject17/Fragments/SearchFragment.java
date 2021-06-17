@@ -45,7 +45,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
         etLocation=view.findViewById(R.id.EtLocation);
         spinner_shops=view.findViewById(R.id.spinner_shops);
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(getContext(),
-                R.array.shops,
+                R.array.kind,
                 android.R.layout.simple_spinner_item);
 
         spinner_shops.setAdapter(adapter);
@@ -77,7 +77,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
         view.findViewById(R.id.btnPrev).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(getContext(), ProfileActivity.class);
+                Intent i=new Intent(getContext(), SignUpActivity.class);
                 startActivity(i);
             }
         });

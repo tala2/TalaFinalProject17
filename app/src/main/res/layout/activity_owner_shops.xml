@@ -11,84 +11,36 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/btnAddS"
+            android:layout_width="wrap_content"
+            android:layout_height="118dp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_add" />
+
+        <TextView
+            android:id="@+id/EtMyShops"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:fontFamily="@font/alice"
+            android:text="My Sales"
+            android:textAlignment="center"
+            android:textColor="@color/ic_launcher_background"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="446dp"
             android:orientation="horizontal">
 
 
-            <LinearLayout
+            <ListView
+                android:id="@+id/listShops"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="467dp">
 
-                <ImageButton
-                    android:id="@+id/imgbtnSprofile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_account_circle_24" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/EtMySales"
-                    android:layout_width="match_parent"
-                    android:layout_height="76dp"
-                    android:fontFamily="@font/alice"
-                    android:text="My Sales"
-                    android:textAlignment="center"
-                    android:textColor="@color/ic_launcher_background"
-                    android:textSize="36sp"
-                    android:textStyle="bold" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="21dp" />
-
-                <Space
-                    android:layout_width="29dp"
-                    android:layout_height="29dp" />
-
-                <ListView
-                    android:id="@+id/listSales"
-                    android:layout_width="match_parent"
-                    android:layout_height="417dp">
-
-                </ListView>
-
-                <Space
-                    android:layout_width="294dp"
-                    android:layout_height="92dp"
-                    android:layout_weight="1" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <Space
-                        android:layout_width="342dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <ImageButton
-                        android:id="@+id/addSales"
-                        android:layout_width="5dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@android:drawable/ic_menu_add" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-
+            </ListView>
         </LinearLayout>
 
     </LinearLayout>
