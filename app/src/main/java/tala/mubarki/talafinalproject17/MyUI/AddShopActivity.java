@@ -11,6 +11,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -32,6 +34,8 @@ public class AddShopActivity extends AppCompatActivity {
     private Button btnSaveShop;
     private EditText etAdress;
     private Spinner spinner_categ;
+    private RadioButton radio, radioCustomer;
+    private RadioGroup radioGroup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

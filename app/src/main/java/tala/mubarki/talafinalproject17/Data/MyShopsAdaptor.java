@@ -40,25 +40,16 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
         //3.2 find view by ID
         ImageButton btnDelete = v.findViewById(R.id.imgBtnDelete);
         TextView tvName = v.findViewById(R.id.itmTvname);
-        //what is the best type of this field(tvtype+ tvdiscount)
         //sale
         TextView tvDiscount = v.findViewById(R.id.itmtVDiscount);
-        //location
-        TextView tvAddress = v.findViewById(R.id.itmTvAddress);
-        //edit
-        ImageButton btnEdit = v.findViewById(R.id.imgBtnEdit);
-        //category
-        TextView tvCategory=v.findViewById(R.id.itmTvCategory);
+
 
         // ImageButton btnLocation=v.findViewById(R.id.);
-
         //3.3 get the soutable shop object
-        final Shop shop = getItem(position);
+         Shop shop = getItem(position);
         //3.4 connect the dot to the view (view the data using item views)
         tvName.setText(shop.getName());
-        tvAddress.setText(shop.getAddress());
         tvDiscount.setText(shop.getDiscountString());
-        tvCategory.setText(shop.getCategory());
         // tvDiscount (how to fill in the dis)
 
         /* I didnt understand this function
@@ -80,19 +71,14 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
 
 
         //3.5 events
-
-        btnEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                remove(shop);
             }
         });
         return v;
     }
 //read and
+
 }

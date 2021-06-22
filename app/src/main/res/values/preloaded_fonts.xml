@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/adamina</item>
         <item>@font/alice</item>
         <item>@font/alike</item>
+        <item>@font/alike_angular</item>
         <item>@font/allura</item>
         <item>@font/amiri</item>
+        <item>@font/cormorant</item>
+        <item>@font/tinos_bold_italic</item>
 
     </array>
 </resources>

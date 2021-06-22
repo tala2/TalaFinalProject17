@@ -30,7 +30,6 @@ public class MySaleAdaptor extends ArrayAdapter<MySale> {
         android.view.View v= LayoutInflater.from(getContext()).inflate(R.layout.item_shop_view1,parent,false);
         //3.2 find view by ID
         TextView tvLastDate=v.findViewById(R.id.itm);
-        TextView tvType=v.findViewById(R.id.itmTvCategory);
         TextView tvDiscount=v.findViewById(R.id.itemetDiscount);
         ImageButton btnEdit=v.findViewById(R.id.itemimgAdd);
         ImageButton btnDelete=v.findViewById(R.id.itemimgDelete);
@@ -42,7 +41,6 @@ public class MySaleAdaptor extends ArrayAdapter<MySale> {
 //tvDiscount.setText(MySale.g);
         tvDiscount.setText( sale.getDiscountString());
         tvLastDate.setText((CharSequence) sale.getLastdate());
-        tvType.setText(sale.getType());
 // tvDiscount (how to fill in the dis)
 
         /* I didnt understand this function

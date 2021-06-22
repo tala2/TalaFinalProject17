@@ -47,7 +47,6 @@ public class ProfileActivity extends AppCompatActivity {
         etLastName = findViewById(R.id.etLastName);//family name
         etPhone = findViewById(R.id.etPhone);//phone number
         btnSave = findViewById(R.id.btnSaveAdding1);//save data
-        btnReturn = findViewById(R.id.btnReturnadd1);//return to Sign Up screen
         scrView= findViewById(R.id.scrView);
         tab=findViewById(R.id.tab);
         radioCustomer=findViewById(R.id.customer);

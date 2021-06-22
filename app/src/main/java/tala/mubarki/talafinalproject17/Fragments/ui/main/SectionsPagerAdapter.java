@@ -40,18 +40,18 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
        if(position==0){
            if(searchFragment==null)
            {
-               searchFragment=new SearchFragment();
+              searchFragment=new SearchFragment();
            }
            return searchFragment;
        }
-        if(position==0){
+        if(position==1){
             if(mapsFragment==null)
             {
                 mapsFragment=new MapsFragment();
             }
             return mapsFragment;
         }
-        if(position==0){
+        if(position==2){
             if(shopsFragment==null)
             {
                 shopsFragment=new ShopsFragment();

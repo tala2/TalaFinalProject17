@@ -19,7 +19,7 @@
 
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tvNewShop"
                 android:layout_width="match_parent"
                 android:layout_height="117dp"
                 android:fontFamily="cursive"
@@ -31,6 +31,7 @@
                 android:text="New Shop" />
 
             <EditText
+                android:id="@+id/EtMail"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:background="@drawable/custom_input_icon"
@@ -51,28 +52,53 @@
                 android:background="@drawable/custom_input_icon"
                 android:drawablePadding="12dp"
                 android:ems="10"
-                android:hint="Sale"
-                android:inputType="textPersonName" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:background="@drawable/custom_input_icon"
-                android:drawablePadding="12dp"
-                android:ems="10"
                 android:hint="Enter your location"
                 android:inputType="textPersonName" />
 
-            <Button
-                android:id="@+id/btnSaveShop"
+            <TextView
+                android:id="@+id/TvQuastion"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@android:color/holo_purple"
-                android:text="Save" />
+                android:layout_height="67dp"
+                android:background="@drawable/custom_input_icon"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:text="Do you have DISCOUNT?"
+                android:textSize="18sp" />
 
-            <Space
-                android:layout_width="427dp"
-                android:layout_height="472dp" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="307dp">
+
+                <RadioButton
+                    android:id="@+id/radioYes"
+                    android:layout_width="match_parent"
+                    android:layout_height="68dp"
+                    android:text="yes" />
+
+                <RadioButton
+                    android:id="@+id/radioNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="59dp"
+                    android:text="No" />
+
+                <EditText
+                    android:id="@+id/EdDiscount1"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:background="@drawable/custom_input_icon"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:inputType="numberSigned"
+                    android:text="Discount" />
+
+                <Button
+                    android:id="@+id/btnSaveShop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_purple"
+                    android:text="Save" />
+
+            </RadioGroup>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

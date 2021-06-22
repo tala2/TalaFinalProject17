@@ -7,100 +7,42 @@
 
 
     <TextView
-        android:id="@+id/itmTvAddress"
-        android:layout_width="234dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/alike"
-        android:text="Shop Adsress"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/itmTvCategory"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itmtVDiscount" />
-
-    <TextView
-        android:id="@+id/itmtVDiscount"
-        android:layout_width="150dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="25dp"
-        android:fontFamily="@font/alike"
-        android:text="Discount"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/itmTvAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itmTvname" />
-
-    <TextView
         android:id="@+id/itmTvname"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="22dp"
+        android:layout_width="165dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="206dp"
         android:fontFamily="@font/alike"
         android:text="Shop Name"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/itmtVDiscount"
-        app:layout_constraintEnd_toEndOf="@+id/itmTvPhone"
-        app:layout_constraintStart_toStartOf="@+id/itmtVDiscount"
-        app:layout_constraintTop_toBottomOf="@+id/imgBtnDelete" />
-
-    <TextView
-        android:id="@+id/itmTvCategory"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="15dp"
-        android:fontFamily="@font/alike"
-        android:text="Shop Category"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/itmTvPhone"
-        app:layout_constraintEnd_toEndOf="@+id/itmTvAddress"
+        app:layout_constraintEnd_toStartOf="@+id/imgBtnDelete"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itmTvAddress" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imgBtnDelete"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="285dp"
-        android:layout_marginBottom="161dp"
-        app:layout_constraintBottom_toTopOf="@+id/itmTvname"
-        app:layout_constraintEnd_toStartOf="@+id/imgBtnEdit"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="71dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/itmtVDiscount"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
-    <ImageView
-        android:id="@+id/imgBtnEdit"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="6dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgBtnDelete"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
-
     <TextView
-        android:id="@+id/itmTvPhone"
-        android:layout_width="173dp"
+        android:id="@+id/itmtVDiscount"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginBottom="168dp"
+        android:layout_marginEnd="203dp"
+        android:layout_marginBottom="653dp"
         android:fontFamily="@font/alike"
-        android:text="Phone"
+        android:text="Discount"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imgBtnDelete"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itmTvCategory" />
+        app:layout_constraintTop_toBottomOf="@+id/itmTvname" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

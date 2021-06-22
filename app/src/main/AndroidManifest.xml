@@ -50,15 +50,17 @@
         <activity android:name=".FundamentalActivity" />
         <activity android:name=".PickImageActivity" />
         <activity android:name=".MyUI.SignUpActivity" />
-        <activity android:name=".MyUI.SignInActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".MyUI.SignInActivity"/>
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+        <activity android:name=".MyUI.HomeScreenActivity"/>
+
+        <activity android:name=".MyUI.AddShopActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".MyUI.HomeScreenActivity"></activity>
-        <activity android:name=".MyUI.AddShopActivity" />
         <activity android:name=".MyUI.MainActivity" />
 
         <meta-data
