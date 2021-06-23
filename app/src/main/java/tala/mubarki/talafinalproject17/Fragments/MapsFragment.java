@@ -12,6 +12,8 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,8 +32,10 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -43,16 +47,26 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.maps.model.RoundCap;
 import com.google.android.gms.maps.model.SquareCap;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOException;
 import java.util.List;
 
+import tala.mubarki.talafinalproject17.Data.MyShopsAdaptor;
+import tala.mubarki.talafinalproject17.Data.Shop;
 import tala.mubarki.talafinalproject17.R;
 
 public class MapsFragment extends Fragment {
     private GoogleMap mMap;
     private FusedLocationProviderClient fusedLocationClient;
-    private ListView lst1;
+    private ListView shops_lst;
+    private MyShopsAdaptor adaptor;
     private LocationRequest mLocationRequest;
     private Location mLastLocation;
     Marker mCurrLocationMarker;
@@ -63,8 +77,8 @@ public class MapsFragment extends Fragment {
         public void onMapReady(GoogleMap googleMap) {
             mMap = googleMap;
             mLocationRequest = new LocationRequest();
-            mLocationRequest.setInterval(1000*6); //1000MS=1S
-            mLocationRequest.setFastestInterval(1000*6);
+            mLocationRequest.setInterval(1000 * 6); //1000MS=1S
+            mLocationRequest.setFastestInterval(1000 * 6);
             mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
             if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (ContextCompat.checkSelfPermission(getContext(),
@@ -77,8 +91,7 @@ public class MapsFragment extends Fragment {
                     //Request Location Permission
                     checkLocationPermission();
                 }
-            }
-            else {
+            } else {
                 fusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
                 mMap.setMyLocationEnabled(true);
             }
@@ -121,8 +134,7 @@ public class MapsFragment extends Fragment {
                                 new LatLng(location.getLatitude(), location.getLongitude())
                         ));
 
-                if(mLastLocation==null)
-                {
+                if (mLastLocation == null) {
                     //move map camera
                     LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14));
@@ -130,9 +142,7 @@ public class MapsFragment extends Fragment {
                 mLastLocation = location;
                 if (mCurrLocationMarker != null) {
                     mCurrLocationMarker.remove();
-                }
-                else
-                {
+                } else {
                     LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14));
                 }
@@ -155,22 +165,26 @@ public class MapsFragment extends Fragment {
             }
         }
     };
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View view= inflater.inflate(R.layout.fragment_maps, container, false);
-        lst1=view.findViewById(R.id.shops_list);
-        spinner_filter=view.findViewById(R.id.spinner_filter);
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(getContext(),R.array.kind, android.R.layout.simple_spinner_item);
+        View view = inflater.inflate(R.layout.fragment_maps, container, false);
+        adaptor=new MyShopsAdaptor(getContext(),R.layout.item_shop_view1);
+        shops_lst = view.findViewById(R.id.shops_list);
+        shops_lst.setAdapter(adaptor);
+        readTasksFromFirebase(null);
+        spinner_filter = view.findViewById(R.id.spinner_filter);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.kind, android.R.layout.simple_spinner_item);
         spinner_filter.setAdapter(adapter);
         spinner_filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if(i==4){
-                    FirebaseAuth auth=FirebaseAuth.getInstance();
+                if (i == 4) {
+                    FirebaseAuth auth = FirebaseAuth.getInstance();
                     auth.signOut();
                 }
             }
@@ -179,8 +193,45 @@ public class MapsFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(getContext());
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            ActivityCompat.requestPermissions(( Activity ) getContext(),new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},MY_PERMISSIONS_REQUEST_LOCATION);
+
+
+            // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+//            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+//                    .findFragmentById(R.id.map);
+//            mapFragment.getMapAsync(this);
+        }
+//        fusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
+//            @Override
+//            public void onSuccess(Location location) {
+//                if(location!=null) {
+//                    mLastLocation=location;
+////                    if(route!=null)
+////                    route.getPics().put(mLastLocation,"test");
+//                    LatLng latLng = new LatLng(location.getAltitude(), location.getLongitude());
+//                    mMap.addMarker(new MarkerOptions().position(latLng).title("Marker in Sydney"));
+//                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+//                    Toast.makeText(MapsActivity.this, "Last Location:", Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        });
+//        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+//                .findFragmentById(R.id.map);
+//        mapFragment.getMapAsync(this);
         return view;
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -191,8 +242,10 @@ public class MapsFragment extends Fragment {
             mapFragment.getMapAsync(callback);
         }
     }
+
     /**
      * Styles the polyline, based on type.
+     *
      * @param polyline The polyline object that needs styling.
      */
     private void stylePolyline(Polyline polyline) {
@@ -220,7 +273,9 @@ public class MapsFragment extends Fragment {
         polyline.setColor(Color.RED);
         polyline.setJointType(JointType.ROUND);
     }
+
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
+
     private void checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -239,7 +294,7 @@ public class MapsFragment extends Fragment {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //Prompt the user once explanation has been shown
-                                ActivityCompat.requestPermissions(( Activity ) getContext(),new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_LOCATION  );
+                                ActivityCompat.requestPermissions(( Activity ) getContext(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_LOCATION);
                             }
                         })
                         .create()
@@ -250,10 +305,11 @@ public class MapsFragment extends Fragment {
                 // No explanation needed, we can request the permission.
                 ActivityCompat.requestPermissions(( Activity ) getContext(),
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                        MY_PERMISSIONS_REQUEST_LOCATION );
+                        MY_PERMISSIONS_REQUEST_LOCATION);
             }
         }
     }
+
     @Override
     public void onPause() {
         super.onPause();
@@ -263,6 +319,7 @@ public class MapsFragment extends Fragment {
             fusedLocationClient.removeLocationUpdates(mLocationCallback);
         }
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
@@ -297,4 +354,48 @@ public class MapsFragment extends Fragment {
 
     }
 
+
+    private void readTasksFromFirebase(final String stTosearch) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        String uid = auth.getUid();
+        DatabaseReference reference = database.getReference();
+        reference.child("All Shops").child(uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                adaptor.clear();
+                for (DataSnapshot d : snapshot.getChildren()) {
+                    Shop t = d.getValue(Shop.class);
+                    Log.d("My Shops", t.toString());
+                    if (stTosearch == null || stTosearch.length() == 0) {
+                       {
+                            adaptor.add(t);
+                           Geocoder geocoder= new Geocoder(getContext());
+                           try {
+                               List<Address> addressList = geocoder.getFromLocationName(t.getAddress(), 3);
+                               if(addressList.size()>0) {
+                                   Address address = addressList.get(0);
+                                   LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                                   mMap.addMarker(new MarkerOptions().position(latLng).title(t.getName()));
+                                   mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12));
+                               }
+                               } catch (IOException e) {
+                               e.printStackTrace();
+                           }
+                       }
+                    } else if (t.getName().contains(stTosearch)) {
+                        {
+                            adaptor.add(t);
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+        });
+    }
 }

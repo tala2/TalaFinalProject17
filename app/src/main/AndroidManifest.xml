@@ -45,7 +45,14 @@
         <activity android:name=".MyUI.ui.main.OwnerShops" />
 
         <activity android:name=".Fragments.MainShopsActivity" />
-        <activity android:name=".MyUtils.ProfileActivity" />
+        <activity android:name=".MyUtils.ProfileActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MyUI.MainActivity" />
         <activity android:name=".MyUtils.Shops" />
         <activity android:name=".FundamentalActivity" />
         <activity android:name=".PickImageActivity" />
@@ -54,14 +61,8 @@
 
         <activity android:name=".MyUI.HomeScreenActivity"/>
 
-        <activity android:name=".MyUI.AddShopActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".MyUI.AddShopActivity"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".MyUI.MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

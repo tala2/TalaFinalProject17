@@ -10,10 +10,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,26 +28,48 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import tala.mubarki.talafinalproject17.Data.MyShopsAdaptor;
 import tala.mubarki.talafinalproject17.Data.Shop;
 import tala.mubarki.talafinalproject17.R;
 //1 design addshop xml
 public class AddShopActivity extends AppCompatActivity {
     //2
     private Button btnSaveShop;
-    private EditText etAdress;
+    private EditText etAdress,etDiscount;
+    private TextView tvQuestion;
     private Spinner spinner_categ;
-    private RadioButton radio, radioCustomer;
+    private RadioButton radioyes, radioNo;
     private RadioGroup radioGroup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //3 find view by id
         setContentView(R.layout.activity_add_shop);
-
         spinner_categ=findViewById(R.id.spinner_categ);
+        radioGroup=findViewById(R.id.radioGroup);
+        radioNo=findViewById(R.id.radioNo);
+        radioyes=findViewById(R.id.radioYes);
+        tvQuestion=findViewById(R.id.TvQuastion);
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.kind, android.R.layout.simple_spinner_item);
         spinner_categ.setAdapter(adapter);
         btnSaveShop=findViewById(R.id.btnSaveShop);
+        etDiscount=findViewById(R.id.EdDiscount1);
+        etAdress=findViewById(R.id.etAdress2);
+        radioyes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    etAdress.setVisibility(View.VISIBLE);
+                    etDiscount.setVisibility(View.VISIBLE);
+                    spinner_categ.setVisibility(View.VISIBLE);
+                }
+                if(b==false){
+                    etAdress.setVisibility(View.VISIBLE);
+                    etDiscount.setVisibility(View.GONE);
+                    spinner_categ.setVisibility(View.VISIBLE);
+                }
+            }
+        });
         spinner_categ.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -72,11 +96,16 @@ public class AddShopActivity extends AppCompatActivity {
     //5
     public void validateForm(){
         String adress= etAdress.getText().toString();
+        String discount=etDiscount.getText().toString();
         boolean isOk=true;
         //note: another validate option for the address it have to chek if the address is located
         if(adress.length()==0){
             isOk= false;
             etAdress.setError("Wrong Address");
+        }
+        if(discount.length()==0 || discount.length()>3){
+            isOk= false;
+            etDiscount.setError("Impossible Discount ");
         }
 
         if (isOk){
@@ -84,6 +113,8 @@ public class AddShopActivity extends AppCompatActivity {
             //6.1 build your data project
             Shop shop= new Shop();
             shop.setAddress(adress);
+            shop.setDiscountString(discount);
+            shop.setCategory(( String ) spinner_categ.getSelectedItem());
             //6.
             saveShop(shop);
         }

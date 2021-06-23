@@ -43,6 +43,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         TvProfile1 = findViewById(R.id.tvAdd); // title
+        radioGroup=findViewById(R.id.radio);
         etFirstName = findViewById(R.id.etFirstName);//first name
         etLastName = findViewById(R.id.etLastName);//family name
         etPhone = findViewById(R.id.etPhone);//phone number
@@ -57,13 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
                 validateForm();
             }
         });
-        btnReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i=new Intent(ProfileActivity.this, SignInActivity.class);
-                startActivity(i);
-            }
-        });
+
     }
 
     private void validateForm() {
@@ -94,7 +89,7 @@ public class ProfileActivity extends AppCompatActivity {
                 //6.
                 saveCustomer(customer);
             }
-            if(radioCustomer.isChecked()){
+            if(radioOwner.isChecked()){
                 Owner owner=new Owner();
                 owner.setName(fname);
                 owner.setPhone(phone);

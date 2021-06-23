@@ -12,6 +12,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import tala.mubarki.talafinalproject17.R;
 
 public class MyShopsAdaptor extends ArrayAdapter<Shop> {
@@ -32,53 +36,48 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
          */
     }
 
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         //3.1
         View v = LayoutInflater.from(getContext()).inflate(R.layout.item_shop_view1, parent, false);
         //3.2 find view by ID
+        //3.3 get the soutable shop object
+        final Shop shop=getItem(position);
         ImageButton btnDelete = v.findViewById(R.id.imgBtnDelete);
         TextView tvName = v.findViewById(R.id.itmTvname);
         //sale
         TextView tvDiscount = v.findViewById(R.id.itmtVDiscount);
-
-
         // ImageButton btnLocation=v.findViewById(R.id.);
-        //3.3 get the soutable shop object
-         Shop shop = getItem(position);
         //3.4 connect the dot to the view (view the data using item views)
         tvName.setText(shop.getName());
         tvDiscount.setText(shop.getDiscountString());
         // tvDiscount (how to fill in the dis)
 
-        /* I didnt understand this function
-        switch(shop.getAdress()){
-            case 1: tvDiscount.setBackgroundColor(Color.RED);break;
-            case 2: tvDiscount.setBackgroundColor(Color.YELLOW);break;
-            case 3: tvDiscount.setBackgroundColor(Color.CYAN);break;
-            case 4: tvDiscount.setBackgroundColor(Color.MAGENTA);break;
-            case 5: tvDiscount.setBackgroundColor(Color.RED);break;
-        }
-        switch(task.getNecessary()){
-            case 5: tvImportant.setBackgroundColor(Color.RED);break;
-            case 4: tvImportant.setBackgroundColor(Color.YELLOW);break;
-            case 3: tvImportant.setBackgroundColor(Color.CYAN);break;
-            case 2: tvImportant.setBackgroundColor(Color.MAGENTA);break;
-            case 1: tvImportant.setBackgroundColor(Color.RED);break;
-        }
-         */
+
+
 
 
         //3.5 events
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                remove(shop);
+                delProduct(shop);
             }
         });
+        tvName.setText(shop.getName());
+        tvDiscount.setText(shop.getDiscountpercent()+"");
         return v;
     }
-//read and
-
+    private void delProduct(Shop myShop){
+        FirebaseDatabase database=FirebaseDatabase.getInstance();
+        //2.
+        DatabaseReference reference=database.getReference();
+        //3. user id
+        FirebaseAuth auth=FirebaseAuth.getInstance();
+        String uid=auth.getCurrentUser().getUid();
+        //4. My object key
+       // reference.child("All shops").child(uid).child(myShop.getKey()).removeValue().addOnCompleteListener(new )
+    }
 }

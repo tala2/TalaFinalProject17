@@ -26,8 +26,9 @@ import tala.mubarki.talafinalproject17.R;
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
  */
+//must delete this fragment
 public class ShopsFragment extends Fragment {
-    private ListView lstv;
+//    private ListView lstv;
     private MyShopsAdaptor adaptor;
 
 
@@ -36,44 +37,44 @@ public class ShopsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_shops, container, false);
-        lstv= view.findViewById(R.id.lstvShops);
-        lstv.setAdapter(adaptor);
-        readTasksFromFirebase(null);
+//        lstv= view.findViewById(R.id.lstvShops);
+//        lstv.setAdapter(adaptor);
+//        readTasksFromFirebase(null);
        return view;
     }
 
-    private void readTasksFromFirebase(final String stTosearch) {
-        FirebaseDatabase database=FirebaseDatabase.getInstance();
-        FirebaseAuth auth=FirebaseAuth.getInstance();
-        String uid=auth.getUid();
-        DatabaseReference reference=database.getReference();
-        reference.child("All Shops").child(uid).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                adaptor.clear();
-                for (DataSnapshot d : snapshot.getChildren())
-                {
-                    Shop t=d.getValue(Shop.class);
-                    Log.d("My Shops",t.toString());
-                    if(stTosearch==null|| stTosearch.length()==0){
-                        if(t.isCompleted()==false){
-                            adaptor.add(t);
-                        }
-                    }
-                    else
-                        if (t.getName().contains(stTosearch))
-                        {
-                            if(t.isCompleted()==false){
-                                adaptor.add(t);
-                            }
-                        }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
+//    private void readTasksFromFirebase(final String stTosearch) {
+//        FirebaseDatabase database=FirebaseDatabase.getInstance();
+//        FirebaseAuth auth=FirebaseAuth.getInstance();
+//        String uid=auth.getUid();
+//        DatabaseReference reference=database.getReference();
+//        reference.child("All Shops").child(uid).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                adaptor.clear();
+//                for (DataSnapshot d : snapshot.getChildren())
+//                {
+//                    Shop t=d.getValue(Shop.class);
+//                    Log.d("My Shops",t.toString());
+//                    if(stTosearch==null|| stTosearch.length()==0){
+//                        if(t.isCompleted()==false){
+//                            adaptor.add(t);
+//                        }
+//                    }
+//                    else
+//                        if (t.getName().contains(stTosearch))
+//                        {
+//                            if(t.isCompleted()==false){
+//                                adaptor.add(t);
+//                            }
+//                        }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//    }
 }
