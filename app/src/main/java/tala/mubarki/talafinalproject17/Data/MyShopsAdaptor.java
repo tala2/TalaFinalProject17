@@ -8,10 +8,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -53,12 +56,6 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
         //3.4 connect the dot to the view (view the data using item views)
         tvName.setText(shop.getName());
         tvDiscount.setText(shop.getDiscountString());
-        // tvDiscount (how to fill in the dis)
-
-
-
-
-
         //3.5 events
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,5 +76,17 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
         String uid=auth.getCurrentUser().getUid();
         //4. My object key
        // reference.child("All shops").child(uid).child(myShop.getKey()).removeValue().addOnCompleteListener(new )
+        reference.child("AllShops").child(uid).child(myShop.getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+               if(task.isSuccessful()) {
+                   Toast.makeText(getContext(),"Delete Successful",Toast.LENGTH_SHORT).show();
+               }
+               else {
+                   Toast.makeText(getContext(),"Delete Failed"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                   task.getException().printStackTrace();
+               }
+            }
+        });
     }
 }

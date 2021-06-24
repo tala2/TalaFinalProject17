@@ -8,22 +8,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import tala.mubarki.talafinalproject17.Fragments.MainShopsActivity;
 import tala.mubarki.talafinalproject17.Fragments.MainTabsShopsActivity;
+import tala.mubarki.talafinalproject17.MyUI.ui.main.OwnerShops;
 import tala.mubarki.talafinalproject17.MyUtils.MyValidations;
 import tala.mubarki.talafinalproject17.R;
 //1 xml
 public class SignInActivity extends AppCompatActivity {
     //2
     private EditText etEmail,etPassword;
-    private Button btnLogin,btnSignup,btnForgetPass;
+    private Button btnLogin,btnSignup;
+    private TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,15 +38,14 @@ public class SignInActivity extends AppCompatActivity {
         FirebaseAuth auth=FirebaseAuth.getInstance();
         if(auth.getCurrentUser()!=null)//user signed in before
         {
-            Intent i= new Intent(getBaseContext(),MainShopsActivity.class);
-            finish();
-            startActivity(i);
+            checkOwner();
         }
 
         setContentView(R.layout.activity_sign_in);
         //3
-        etEmail=findViewById(R.id.etEmail2);
-        etPassword=findViewById(R.id.etPassWord);
+        textView=findViewById(R.id.tvTitle);
+        etEmail=findViewById(R.id.ettEmailAddress);
+        etPassword=findViewById(R.id.etPass);
         btnLogin=findViewById(R.id.btnSignIn);
         btnSignup = findViewById(R.id.btnSignup);
 
@@ -94,8 +100,7 @@ public class SignInActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     //9
-                    Intent i=new Intent(SignInActivity.this, MainTabsShopsActivity.class);
-                    startActivity(i);
+                    checkOwner();
                 }
                 else {
                     //10
@@ -106,6 +111,31 @@ public class SignInActivity extends AppCompatActivity {
         });
 
 
+
+    }
+    private void checkOwner() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        String uid = auth.getUid();
+        DatabaseReference reference = database.getReference();
+        reference.child("AllOwners").child(uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+              if(snapshot!= null&& snapshot.hasChildren()) {
+                  Intent i = new Intent(SignInActivity.this, OwnerShops.class);
+                  startActivity(i);
+              }
+              else
+              {
+                  Intent i = new Intent(SignInActivity.this, MainTabsShopsActivity.class);
+                  startActivity(i);
+              }
+        }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+
+            });
 
     }
 }

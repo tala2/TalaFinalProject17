@@ -1,6 +1,7 @@
 package tala.mubarki.talafinalproject17.Data;
 
 import java.util.Date;
+import java.util.List;
 
 public class Owner {
     private String name;
@@ -10,6 +11,7 @@ public class Owner {
     private String owner;
     private String type;
     private String LastName;
+   /// private List<Shop> shops;
 
     public Owner() {
     }

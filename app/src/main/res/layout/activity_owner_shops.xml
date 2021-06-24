@@ -13,9 +13,8 @@
 
         <Button
             android:id="@+id/btnAddS"
-            android:layout_width="wrap_content"
-            android:layout_height="118dp"
-            android:layout_weight="1"
+            android:layout_width="67dp"
+            android:layout_height="61dp"
             android:background="@drawable/ic_add" />
 
         <TextView
@@ -23,9 +22,9 @@
             android:layout_width="match_parent"
             android:layout_height="76dp"
             android:fontFamily="@font/alice"
-            android:text="My Sales"
+            android:text="My Shops"
             android:textAlignment="center"
-            android:textColor="@color/ic_launcher_background"
+            android:textColor="#EA80FC"
             android:textSize="36sp"
             android:textStyle="bold" />
 

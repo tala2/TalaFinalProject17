@@ -23,9 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import tala.mubarki.talafinalproject17.Data.Customer;
 import tala.mubarki.talafinalproject17.Data.Owner;
-import tala.mubarki.talafinalproject17.Fragments.MainShopsActivity;
 import tala.mubarki.talafinalproject17.Fragments.MainTabsShopsActivity;
-import tala.mubarki.talafinalproject17.MyUI.SignInActivity;
 import tala.mubarki.talafinalproject17.MyUI.ui.main.OwnerShops;
 import tala.mubarki.talafinalproject17.R;
 
@@ -108,12 +106,12 @@ public class ProfileActivity extends AppCompatActivity {
         FirebaseAuth auth=FirebaseAuth.getInstance();
         String uid=auth.getCurrentUser().getUid();
         //4. My object key
-        String key=reference.child("All Customers").push().getKey();
+        String key=reference.child("AllCustomers").push().getKey();
         //5
         customer.setOwner(uid);
         customer.setKey(key);
         //6. actual storing
-        reference.child("All Customers").child(key).setValue(customer).addOnCompleteListener(new OnCompleteListener<Void>() {
+        reference.child("AllCustomers").child(uid).setValue(customer).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
@@ -137,12 +135,12 @@ public class ProfileActivity extends AppCompatActivity {
         FirebaseAuth auth=FirebaseAuth.getInstance();
         String uid=auth.getCurrentUser().getUid();
         //4. My object key
-        String key=reference.child("All Owners").push().getKey();
+        String key=reference.child("AllOwners").push().getKey();
         //5
         owner.setOwner(uid);
         owner.setKey(key);
         //6. actual storing
-        reference.child("All Owners").child(key).setValue(owner).addOnCompleteListener(new OnCompleteListener<Void>() {
+        reference.child("AllOwners").child(uid).setValue(owner).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()) {

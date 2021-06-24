@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/backgroundprfile"
     android:layout_height="match_parent"
     tools:context=".MyUtils.ProfileActivity">
 
@@ -42,13 +41,15 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="537dp"
                         android:orientation="vertical">
 
                         <EditText
                             android:id="@+id/etFirstName"
                             android:layout_width="match_parent"
                             android:layout_height="81dp"
+                            android:background="@drawable/custom_input_icon"
+                            android:drawablePadding="12dp"
                             android:ems="10"
                             android:hint="Enter Your First Name"
                             android:inputType="textPersonName"
@@ -58,6 +59,8 @@
                             android:id="@+id/etLastName"
                             android:layout_width="421dp"
                             android:layout_height="82dp"
+                            android:background="@drawable/custom_input_icon"
+                            android:drawablePadding="12dp"
                             android:ems="10"
                             android:hint="Enter Your Last Name"
                             android:inputType="textPersonName"
@@ -67,6 +70,8 @@
                             android:id="@+id/etPhone"
                             android:layout_width="match_parent"
                             android:layout_height="78dp"
+                            android:background="@drawable/custom_input_icon"
+                            android:drawablePadding="12dp"
                             android:ems="10"
                             android:hint="Phone Number"
                             android:inputType="phone"
@@ -86,12 +91,15 @@
                                 android:id="@+id/owner"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:background="@drawable/custom_input_icon"
                                 android:layout_weight="1"
                                 android:text="Owner" />
 
                             <RadioButton
                                 android:id="@+id/customer"
                                 android:layout_width="426dp"
+                                android:background="@drawable/custom_input_icon"
+                                android:drawablePadding="12dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Customer" />
@@ -100,9 +108,9 @@
 
                         <Button
                             android:id="@+id/btnSaveAdding1"
-                            android:layout_width="145dp"
-                            android:layout_height="94dp"
-                            android:backgroundTint="@android:color/black"
+                            android:layout_width="match_parent"
+                            android:layout_height="106dp"
+                            android:background="@drawable/ic_back"
                             android:fontFamily="@font/tinos_bold_italic"
                             android:text="save"
                             android:textAlignment="center"

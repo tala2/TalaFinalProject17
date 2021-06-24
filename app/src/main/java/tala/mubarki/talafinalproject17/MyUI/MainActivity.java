@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseAuth auth=FirebaseAuth.getInstance();
         String uid=auth.getCurrentUser().getUid();
         //4.
-        reference.child("All Shops").child(uid).addValueEventListener(new ValueEventListener() {
+        reference.child("AllShops").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 shopsAdaptor.clear();

@@ -80,8 +80,8 @@
                     android:background="@drawable/custom_input_icon"
                     android:drawablePadding="12dp"
                     android:ems="10"
-                    android:inputType="numberSigned"
-                    android:text="Discount" />
+                    android:hint="Discount"
+                    android:inputType="numberSigned" />
 
                 <Button
                     android:id="@+id/btnSaveShop"

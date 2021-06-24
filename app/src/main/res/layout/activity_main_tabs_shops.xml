@@ -46,12 +46,7 @@
                 android:text="@string/tab_search"
                 android:icon="@drawable/btnsearch_pressed"/>
 
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabItemShops"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tab_Shops"
-                android:icon="@drawable/btnshop_pressed"/>
+
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/tabItemMap"

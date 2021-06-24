@@ -107,7 +107,6 @@ public class AddShopActivity extends AppCompatActivity {
             isOk= false;
             etDiscount.setError("Impossible Discount ");
         }
-
         if (isOk){
             //6 save on fireabase
             //6.1 build your data project
@@ -128,7 +127,7 @@ public class AddShopActivity extends AppCompatActivity {
         FirebaseAuth auth=FirebaseAuth.getInstance();
         String uid=auth.getCurrentUser().getUid();
         //4. My object key
-        String key=reference.child("All shops").push().getKey();
+        String key=reference.child("AllShops").push().getKey();
         //5
         shop.setOwner(uid);
         shop.setKey(key);

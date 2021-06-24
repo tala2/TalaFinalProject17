@@ -57,6 +57,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.Executor;
 
 import tala.mubarki.talafinalproject17.Data.MyShopsAdaptor;
 import tala.mubarki.talafinalproject17.Data.Shop;
@@ -98,7 +99,6 @@ public class MapsFragment extends Fragment {
 
         }
 
-        private static final int REC_CODE = 101;
         /**
          * Manipulates the map once available.
          * This callback is triggered when the map is ready to be used.
@@ -126,13 +126,7 @@ public class MapsFragment extends Fragment {
             if (locationList.size() > 0) {
                 //The last location in the list is the newest
                 Location location = locationList.get(locationList.size() - 1);
-                Log.i("MapsActivity", "Location: " + location.getLatitude() + " " + location.getLongitude());
-                Polyline polyline1 = mMap.addPolyline(new PolylineOptions()
-                        .clickable(true)
-                        .add(
-                                new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude()),
-                                new LatLng(location.getLatitude(), location.getLongitude())
-                        ));
+
 
                 if (mLastLocation == null) {
                     //move map camera
@@ -147,10 +141,6 @@ public class MapsFragment extends Fragment {
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14));
                 }
 
-                // Store a data object with the polyline, used here to indicate an arbitrary type.
-                polyline1.setTag("A");
-                // Style the polyline.
-                stylePolyline(polyline1);
 
                 //Place current location marker
                 LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
@@ -179,6 +169,7 @@ public class MapsFragment extends Fragment {
         readTasksFromFirebase(null);
         spinner_filter = view.findViewById(R.id.spinner_filter);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.kind, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_filter.setAdapter(adapter);
         spinner_filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -195,7 +186,7 @@ public class MapsFragment extends Fragment {
         });
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(getContext());
-        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
@@ -205,30 +196,28 @@ public class MapsFragment extends Fragment {
             // for ActivityCompat#requestPermissions for more details.
             ActivityCompat.requestPermissions(( Activity ) getContext(),new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},MY_PERMISSIONS_REQUEST_LOCATION);
 
-
+            ;
             // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-//            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-//                    .findFragmentById(R.id.map);
-//            mapFragment.getMapAsync(this);
         }
-//        fusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
-//            @Override
-//            public void onSuccess(Location location) {
-//                if(location!=null) {
-//                    mLastLocation=location;
-////                    if(route!=null)
-////                    route.getPics().put(mLastLocation,"test");
-//                    LatLng latLng = new LatLng(location.getAltitude(), location.getLongitude());
-//                    mMap.addMarker(new MarkerOptions().position(latLng).title("Marker in Sydney"));
-//                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
-//                    Toast.makeText(MapsActivity.this, "Last Location:", Toast.LENGTH_LONG).show();
-//                }
-//            }
-//        });
+        fusedLocationClient.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                if(location!=null) {
+                    mLastLocation=location;
+//                    if(route!=null)
+//                    route.getPics().put(mLastLocation,"test");
+                    LatLng latLng = new LatLng(location.getAltitude(), location.getLongitude());
+                    mMap.addMarker(new MarkerOptions().position(latLng).title("Marker in Sydney"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+                    Toast.makeText(getContext(), "Last Location:", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 //        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+//        SupportMapFragment mapFragment = (SupportMapFragment)
+//                getSupportFragmentManager()
 //                .findFragmentById(R.id.map);
-//        mapFragment.getMapAsync(this);
+//        mapFragment.getMapAsync(( OnMapReadyCallback ) getContext());
         return view;
     }
 
@@ -243,36 +232,7 @@ public class MapsFragment extends Fragment {
         }
     }
 
-    /**
-     * Styles the polyline, based on type.
-     *
-     * @param polyline The polyline object that needs styling.
-     */
-    private void stylePolyline(Polyline polyline) {
-        String type = "";
-        // Get the data object stored with the polyline.
-        if (polyline.getTag() != null) {
-            type = polyline.getTag().toString();
-        }
 
-        switch (type) {
-            // If no type is given, allow the API to use the default.
-            case "A":
-                // Use a custom bitmap as the cap at the start of the line.
-                polyline.setStartCap(
-                        new SquareCap());
-                break;
-            case "B":
-                // Use a round cap at the start of the line.
-                polyline.setStartCap(new RoundCap());
-                break;
-        }
-
-        polyline.setEndCap(new RoundCap());
-        polyline.setWidth(3);
-        polyline.setColor(Color.RED);
-        polyline.setJointType(JointType.ROUND);
-    }
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
 
@@ -360,13 +320,13 @@ public class MapsFragment extends Fragment {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         String uid = auth.getUid();
         DatabaseReference reference = database.getReference();
-        reference.child("All Shops").child(uid).addValueEventListener(new ValueEventListener() {
+        reference.child("AllShops").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 adaptor.clear();
                 for (DataSnapshot d : snapshot.getChildren()) {
                     Shop t = d.getValue(Shop.class);
-                    Log.d("My Shops", t.toString());
+                    Log.d("MyShops", t.toString());
                     if (stTosearch == null || stTosearch.length() == 0) {
                        {
                             adaptor.add(t);

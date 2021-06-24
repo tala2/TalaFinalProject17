@@ -10,7 +10,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import tala.mubarki.talafinalproject17.Fragments.MapsFragment;
 import tala.mubarki.talafinalproject17.Fragments.SearchFragment;
-import tala.mubarki.talafinalproject17.Fragments.ShopsFragment;
 import tala.mubarki.talafinalproject17.R;
 
 
@@ -22,10 +21,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     private MapsFragment mapsFragment;
     private SearchFragment searchFragment;
-    private ShopsFragment shopsFragment;
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_search, R.string.tab_Shops,R.string.tab_Map};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_search,R.string.tab_Map};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -51,13 +49,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             }
             return mapsFragment;
         }
-        if(position==2){
-            if(shopsFragment==null)
-            {
-                shopsFragment=new ShopsFragment();
-            }
-            return shopsFragment;
-        }
+
         return null;
     }
 
@@ -70,6 +62,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 3 total pages.
-        return 3;
+        return 2;
     }
 }

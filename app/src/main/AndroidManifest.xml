@@ -41,23 +41,18 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".MyUI.MySaleAdding" />
         <activity android:name=".MyUI.ui.main.OwnerShops" />
 
-        <activity android:name=".Fragments.MainShopsActivity" />
-        <activity android:name=".MyUtils.ProfileActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MyUtils.ProfileActivity"/>
         <activity android:name=".MyUI.MainActivity" />
-        <activity android:name=".MyUtils.Shops" />
-        <activity android:name=".FundamentalActivity" />
-        <activity android:name=".PickImageActivity" />
         <activity android:name=".MyUI.SignUpActivity" />
-        <activity android:name=".MyUI.SignInActivity"/>
+        <activity android:name=".MyUI.SignInActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
 
         <activity android:name=".MyUI.HomeScreenActivity"/>
 

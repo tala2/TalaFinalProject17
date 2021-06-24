@@ -22,11 +22,7 @@ public class Shop {
     private double discountpercent ;//sale
     private Date Lastdate;//sale
     private String owner;
-    private final boolean isCompleted= false;
 
-    public boolean isCompleted() {
-        return isCompleted;
-    }
 
     public String getKey() {
         return key;
