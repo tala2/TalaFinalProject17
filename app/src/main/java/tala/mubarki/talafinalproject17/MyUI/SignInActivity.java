@@ -21,9 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import tala.mubarki.talafinalproject17.Fragments.MainTabsShopsActivity;
-import tala.mubarki.talafinalproject17.MyUI.ui.main.OwnerShops;
-import tala.mubarki.talafinalproject17.MyUtils.MyValidations;
+import tala.mubarki.talafinalproject17.Fragments.MainTabsShops;
 import tala.mubarki.talafinalproject17.R;
 //1 xml
 public class SignInActivity extends AppCompatActivity {
@@ -43,7 +41,7 @@ public class SignInActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_sign_in);
         //3
-        textView=findViewById(R.id.tvTitle);
+
         etEmail=findViewById(R.id.ettEmailAddress);
         etPassword=findViewById(R.id.etPass);
         btnLogin=findViewById(R.id.btnSignIn);
@@ -79,11 +77,7 @@ public class SignInActivity extends AppCompatActivity {
             etEmail.setError("Wrong Email Address Please Rewrite");
         }
         //4
-        MyValidations myValidations = new MyValidations();
-        if (myValidations.validatepassword(passw) == false) {
-            isOk = false;
-            etPassword.setError("Invalid Password!");
-        }
+
         //5
         if (isOk){
             logIn(email,passw);
@@ -127,7 +121,7 @@ public class SignInActivity extends AppCompatActivity {
               }
               else
               {
-                  Intent i = new Intent(SignInActivity.this, MainTabsShopsActivity.class);
+                  Intent i = new Intent(SignInActivity.this, MainTabsShops.class);
                   startActivity(i);
               }
         }

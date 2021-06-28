@@ -63,7 +63,7 @@ import tala.mubarki.talafinalproject17.Data.MyShopsAdaptor;
 import tala.mubarki.talafinalproject17.Data.Shop;
 import tala.mubarki.talafinalproject17.R;
 
-public class MapsFragment extends Fragment {
+public class MapsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     private GoogleMap mMap;
     private FusedLocationProviderClient fusedLocationClient;
     private ListView shops_lst;
@@ -174,7 +174,7 @@ public class MapsFragment extends Fragment {
         spinner_filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 4) {
+                if (i == 7) {
                     FirebaseAuth auth = FirebaseAuth.getInstance();
                     auth.signOut();
                 }
@@ -225,17 +225,13 @@ public class MapsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        SupportMapFragment mapFragment =
-                ( SupportMapFragment ) getChildFragmentManager().findFragmentById(R.id.map);
+        SupportMapFragment mapFragment = ( SupportMapFragment ) getChildFragmentManager().findFragmentById(R.id.map);
         if (mapFragment != null) {
             mapFragment.getMapAsync(callback);
         }
     }
 
-
-
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
-
     private void checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -313,8 +309,6 @@ public class MapsFragment extends Fragment {
         }
 
     }
-
-
     private void readTasksFromFirebase(final String stTosearch) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -357,5 +351,16 @@ public class MapsFragment extends Fragment {
             }
 
         });
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String selectedShops=adapterView.getItemAtPosition(i).toString();
+        Toast.makeText(getContext(),selectedShops,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

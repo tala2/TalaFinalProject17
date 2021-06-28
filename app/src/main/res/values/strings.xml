@@ -4,15 +4,14 @@
     //
 
     <string name="tab_search">search</string>
-    <string name="tab_Shops">shops</string>
     <string name="tab_Map">map</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_owner_shops">OwnerShops</string>
+    <!--    <string name="hello_blank_fragment">Hello blank fragment</string>-->
+    <!--    <string name="title_activity_owner_shops">OwnerShops</string>-->
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <!--    <string name="first_fragment_label">First Fragment</string>-->
+    <!--    <string name="second_fragment_label">Second Fragment</string>-->
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
@@ -32,4 +31,8 @@
 
 
     <string name="title_activity_main_tabs_shops">MainTabsShopsActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">search</string>
+    <string name="map">map</string>
 </resources>

@@ -1,4 +1,4 @@
-package tala.mubarki.talafinalproject17.Fragments.ui.main;
+package tala.mubarki.talafinalproject17.Fragments.main;
 
 import android.content.Context;
 
@@ -12,18 +12,16 @@ import tala.mubarki.talafinalproject17.Fragments.MapsFragment;
 import tala.mubarki.talafinalproject17.Fragments.SearchFragment;
 import tala.mubarki.talafinalproject17.R;
 
-
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
-    private MapsFragment mapsFragment;
+    private MapsFragment mapsFragment1;
     private SearchFragment searchFragment;
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_search,R.string.tab_Map};
+    private static final int[] TAB_TITLES = new int[]{R.string.search,R.string.map};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -33,23 +31,25 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-       if(position==0){
-           if(searchFragment==null)
-           {
-              searchFragment=new SearchFragment();
-           }
-           return searchFragment;
-       }
-        if(position==1){
-            if(mapsFragment==null)
+        if(position==0){
+            if(searchFragment==null)
             {
-                mapsFragment=new MapsFragment();
+                searchFragment=new SearchFragment();
             }
-            return mapsFragment;
+            return searchFragment;
         }
-
+        if(position==1){
+            if(mapsFragment1==null)
+            {
+                mapsFragment1=new MapsFragment();
+            }
+            return mapsFragment1;
+//            if(mapsFragment2==null)
+//            {
+//                mapsFragment2=new MapsFragment2();
+//            }
+//            return mapsFragment2;
+        }
         return null;
     }
 
@@ -61,7 +61,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 3 total pages.
+        // Show 2 total pages.
         return 2;
     }
 }

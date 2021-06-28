@@ -19,7 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="304dp"
         tools:context=".Fragments.MapsFragment" />
-
     <ListView
         android:id="@+id/shops_list"
         android:layout_width="match_parent"

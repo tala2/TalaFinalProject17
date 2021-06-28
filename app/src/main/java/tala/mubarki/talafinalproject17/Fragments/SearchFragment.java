@@ -14,15 +14,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import tala.mubarki.talafinalproject17.MyUI.SignInActivity;
-import tala.mubarki.talafinalproject17.MyUI.SignUpActivity;
-import tala.mubarki.talafinalproject17.MyUtils.ProfileActivity;
+import tala.mubarki.talafinalproject17.MyUI.HotestShopsActivity;
 import tala.mubarki.talafinalproject17.R;
 
 public class SearchFragment extends Fragment implements AdapterView.OnItemSelectedListener {
@@ -39,16 +35,22 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_search, container, false);
         btnFind=view.findViewById(R.id.btnFind1);
-        btnLocation=view.findViewById(R.id.btnLocation);
-        btnSecond=view.findViewById(R.id.btnPrev);
         etAdress=view.findViewById(R.id.EtAdress);
         etLocation=view.findViewById(R.id.EtLocation);
         spinner_shops=view.findViewById(R.id.spinner_shops);
+        imgbtnHOTEST=view.findViewById(R.id.imgbtnHotst);
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(getContext(),
                 R.array.kind,
                 android.R.layout.simple_spinner_item);
 
         spinner_shops.setAdapter(adapter);
+        imgbtnHOTEST.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), HotestShopsActivity.class);
+                startActivity(intent);
+            }
+        });
         spinner_shops.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -65,22 +67,6 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
         });
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         return view;
-    }
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        view.findViewById(R.id.btnPrev).setOnClickListener(new View.OnClickListener() {
-           @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(SearchFragment.this).navigate(R.id.action_mapsFragment_to_searchFragment);
-            }
-        });
-        view.findViewById(R.id.btnPrev).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i=new Intent(getContext(), SignUpActivity.class);
-                startActivity(i);
-            }
-        });
     }
 //?
     @Override

@@ -52,10 +52,7 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
         TextView tvName = v.findViewById(R.id.itmTvname);
         //sale
         TextView tvDiscount = v.findViewById(R.id.itmtVDiscount);
-        // ImageButton btnLocation=v.findViewById(R.id.);
         //3.4 connect the dot to the view (view the data using item views)
-        tvName.setText(shop.getName());
-        tvDiscount.setText(shop.getDiscountString());
         //3.5 events
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override

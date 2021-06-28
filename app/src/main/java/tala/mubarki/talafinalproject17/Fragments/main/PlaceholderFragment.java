@@ -1,4 +1,4 @@
-package tala.mubarki.talafinalproject17.Fragments.ui.main;
+package tala.mubarki.talafinalproject17.Fragments.main;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +14,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import tala.mubarki.talafinalproject17.R;
-
 
 /**
  * A placeholder fragment containing a simple view.
@@ -48,7 +47,7 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_search, container, false);
+        View root = inflater.inflate(R.layout.activity_main_tabs_shops2, container, false);
         final TextView textView = root.findViewById(R.id.section_label);
         pageViewModel.getText().observe(( LifecycleOwner ) getContext(), new Observer<String>() {
             @Override

@@ -22,13 +22,11 @@
         android:theme="@style/Theme.TalaFinalProject17"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-
+        <activity android:name=".MyUI.HotestShopsActivity"></activity>
         <activity
-            android:name=".Fragments.MainTabsShopsActivity"
+            android:name=".Fragments.MainTabsShops"
             android:label="@string/title_activity_main_tabs_shops"
-            android:theme="@style/Theme.TalaFinalProject17.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.TalaFinalProject17.NoActionBar" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -41,23 +39,19 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".MyUI.ui.main.OwnerShops" />
-
-        <activity android:name=".MyUtils.ProfileActivity"/>
+        <activity android:name=".MyUI.OwnerShops" />
+        <activity android:name=".MyUI.ProfileActivity" />
         <activity android:name=".MyUI.MainActivity" />
         <activity android:name=".MyUI.SignUpActivity" />
         <activity android:name=".MyUI.SignInActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
-        <activity android:name=".MyUI.HomeScreenActivity"/>
-
-        <activity android:name=".MyUI.AddShopActivity"/>
-
+        <activity android:name=".MyUI.HomeScreenActivity" />
+        <activity android:name=".MyUI.AddShopActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -1,4 +1,4 @@
-package tala.mubarki.talafinalproject17.Fragments.ui.main;
+package tala.mubarki.talafinalproject17.Fragments.main;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;

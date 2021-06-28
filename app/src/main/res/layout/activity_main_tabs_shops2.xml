@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.MainTabsShopsActivity">
+    tools:context=".Fragments.MainTabsShops">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -27,37 +27,28 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:layout_gravity="bottom|end"
-            app:tabMode="fixed"
+            android:layout_height="wrap_content"
             android:background="#FFFFFF">
 
-
-
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabItemSearch"
+                android:id="@+id/search1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tab_search"
-                android:icon="@drawable/btnsearch_pressed"/>
-
-
+                android:icon="@drawable/btnsearch_pressed"
+                android:text="@string/search" />
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabItemMap"
+                android:id="@+id/map2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tab_Map"
-                android:icon="@drawable/btnmap_pressed"/>
+                android:icon="@drawable/btnmap_pressed"
+                android:text="@string/map" />
         </com.google.android.material.tabs.TabLayout>
-
     </androidx.viewpager.widget.ViewPager>
-
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
