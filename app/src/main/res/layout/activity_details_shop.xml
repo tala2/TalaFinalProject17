@@ -28,79 +28,42 @@
                 android:textAppearance="@style/Widget.Support.CoordinatorLayout"
                 android:textSize="@android:dimen/notification_large_icon_width"
                 android:textStyle="bold"
-                android:text="New Shop" />
-
-            <EditText
-                android:id="@+id/editTextTextPersonName"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:background="@drawable/custom_input_icon"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="Name"
-                android:inputType="textPersonName" />
-
-            <Spinner
-                android:id="@+id/spinner_categ"
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:background="@drawable/custom_input_icon"/>
-
-            <EditText
-                android:id="@+id/etAdress2"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:background="@drawable/custom_input_icon"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="Enter the ADRRESS"
-                android:inputType="textPersonName" />
+                android:text="Shop Details" />
 
             <TextView
-                android:id="@+id/TvQuastion"
+                android:id="@+id/tvNameShop"
                 android:layout_width="match_parent"
-                android:layout_height="67dp"
+                android:layout_height="75dp"
                 android:background="@drawable/custom_input_icon"
                 android:drawablePadding="12dp"
                 android:ems="10"
-                android:text="Do you have DISCOUNT?"
-                android:textSize="18sp" />
+                android:hint="Name" />
 
-            <RadioGroup
-                android:id="@+id/radioGroup"
+            <TextView
+                android:id="@+id/tvCategory"
                 android:layout_width="match_parent"
-                android:layout_height="307dp">
+                android:layout_height="75dp"
+                android:background="@drawable/custom_input_icon"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Category" />
 
-                <RadioButton
-                    android:id="@+id/radioYes"
-                    android:layout_width="match_parent"
-                    android:layout_height="68dp"
-                    android:text="yes" />
+            <TextView
+                android:id="@+id/tvDiscount1"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:background="@drawable/custom_input_icon"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Discount"
+                android:inputType="numberSigned" />
 
-                <RadioButton
-                    android:id="@+id/radioNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="59dp"
-                    android:text="No" />
-
-                <EditText
-                    android:id="@+id/tvDiscount1"
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:background="@drawable/custom_input_icon"
-                    android:drawablePadding="12dp"
-                    android:ems="10"
-                    android:hint="Discount"
-                    android:inputType="numberSigned" />
-
-                <Button
-                    android:id="@+id/btnSaveShop"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/holo_purple"
-                    android:text="Save" />
-
-            </RadioGroup>
+            <Button
+                android:id="@+id/btnSaveShop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/holo_purple"
+                android:text="Save" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

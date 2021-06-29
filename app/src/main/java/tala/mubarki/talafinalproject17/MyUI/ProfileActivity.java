@@ -62,13 +62,11 @@ public class ProfileActivity extends AppCompatActivity {
         String fname = etFirstName.getText().toString();
         String lname = etLastName.getText().toString();
         String phone = etPhone.getText().toString();
-
         boolean isOk = true;
         if (fname.length() < 2)
         {
             isOk = false;
             etFirstName.setError("At least to letters");
-
         }
         if(lname.length()==0){
             isOk=false;
@@ -78,16 +76,17 @@ public class ProfileActivity extends AppCompatActivity {
             //6 save on fireabase
             //6.1 build your data project
             if(radioCustomer.isChecked())
-            {
-                Customer customer= new Customer();
+            { Customer customer= new Customer();
                 customer.setName(fname);
                 customer.setPhone(phone);
                 customer.setLastName(lname);
+                customer.setType("customer");
                 //6.
                 saveCustomer(customer);
             }
             if(radioOwner.isChecked()){
                 Owner owner=new Owner();
+                owner.setType("owner");
                 owner.setName(fname);
                 owner.setPhone(phone);
                 owner.setLastName(lname);

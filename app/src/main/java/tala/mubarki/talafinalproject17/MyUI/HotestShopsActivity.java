@@ -51,6 +51,9 @@ public class HotestShopsActivity extends AppCompatActivity {
         readTaskFromFireBase(null);
     }
 
+    /**
+     * adds the shop if the discount more than 50%
+     */
     private void readTaskFromFireBase(final String stTosearch) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -65,12 +68,13 @@ public class HotestShopsActivity extends AppCompatActivity {
                     Log.d("MyShops", t.toString());
                     if (stTosearch == null || stTosearch.length() == 0) {
                         {
+                            //checks if the discount is bigger than 50
                             if (t.getDiscountpercent()>50){
                                 adaptor.add(t);
-
                             }
                         }
-                    } else if (t.getName().contains(stTosearch)) {
+                    }
+                    else if (t.getName().contains(stTosearch)) {
                         {
                             adaptor.add(t);
                         }
@@ -82,8 +86,4 @@ public class HotestShopsActivity extends AppCompatActivity {
             }
         });
         }
-
-
-
-
 }

@@ -179,7 +179,6 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
                     auth.signOut();
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
@@ -314,7 +313,7 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
         FirebaseAuth auth = FirebaseAuth.getInstance();
         String uid = auth.getUid();
         DatabaseReference reference = database.getReference();
-        reference.child("AllShops").child(uid).addValueEventListener(new ValueEventListener() {
+        reference.child("AllShops").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 adaptor.clear();

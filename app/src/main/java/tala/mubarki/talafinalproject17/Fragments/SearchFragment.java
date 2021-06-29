@@ -54,10 +54,13 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
         spinner_shops.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i==4){
+                if (i==7){
                     FirebaseAuth auth=FirebaseAuth.getInstance();
                     auth.signOut();
                 }
+//                if (spinner_shops.getSelectedItem()){
+//
+//                }
             }
 
             @Override

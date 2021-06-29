@@ -52,7 +52,7 @@ public class OwnerShops extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         String uid = auth.getUid();
         DatabaseReference reference = database.getReference();
-        reference.child("All Shops").child(uid).addValueEventListener(new ValueEventListener() {
+        reference.child("AllShops").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 myShopsAdaptor.clear();

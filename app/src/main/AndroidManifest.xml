@@ -22,7 +22,8 @@
         android:theme="@style/Theme.TalaFinalProject17"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".MyUI.HotestShopsActivity"></activity>
+        <activity android:name=".MyUI.ShopDetailsActivity"></activity>
+        <activity android:name=".MyUI.HotestShopsActivity" />
         <activity
             android:name=".Fragments.MainTabsShops"
             android:label="@string/title_activity_main_tabs_shops"

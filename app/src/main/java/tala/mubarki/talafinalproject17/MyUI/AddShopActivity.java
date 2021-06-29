@@ -3,8 +3,6 @@ package tala.mubarki.talafinalproject17.MyUI;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.location.Address;
-import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,18 +22,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
-
-import tala.mubarki.talafinalproject17.Data.MyShopsAdaptor;
 import tala.mubarki.talafinalproject17.Data.Shop;
 import tala.mubarki.talafinalproject17.R;
 //1 design addshop xml
 public class AddShopActivity extends AppCompatActivity {
     //2
     private Button btnSaveShop;
-    private EditText etAdress,etDiscount;
+    private EditText etAdress,etDiscount,etName;
     private TextView tvQuestion;
     private Spinner spinner_categ;
     private RadioButton radioyes, radioNo;
@@ -47,13 +40,14 @@ public class AddShopActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_shop);
         spinner_categ=findViewById(R.id.spinner_categ);
         radioGroup=findViewById(R.id.radioGroup);
+        etName=findViewById(R.id.etShopName);
         radioNo=findViewById(R.id.radioNo);
         radioyes=findViewById(R.id.radioYes);
         tvQuestion=findViewById(R.id.TvQuastion);
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.kind, android.R.layout.simple_spinner_item);
         spinner_categ.setAdapter(adapter);
         btnSaveShop=findViewById(R.id.btnSaveShop);
-        etDiscount=findViewById(R.id.EdDiscount1);
+        etDiscount=findViewById(R.id.tvDiscount1);
         etAdress=findViewById(R.id.etAdress2);
         radioyes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -62,11 +56,14 @@ public class AddShopActivity extends AppCompatActivity {
                     etAdress.setVisibility(View.VISIBLE);
                     etDiscount.setVisibility(View.VISIBLE);
                     spinner_categ.setVisibility(View.VISIBLE);
+                    etName.setVisibility(View.VISIBLE);
                 }
-                if(b==false){
+                if(b==false)
+                {
                     etAdress.setVisibility(View.VISIBLE);
                     etDiscount.setVisibility(View.GONE);
                     spinner_categ.setVisibility(View.VISIBLE);
+                    etName.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -97,6 +94,7 @@ public class AddShopActivity extends AppCompatActivity {
     public void validateForm(){
         String adress= etAdress.getText().toString();
         String discount=etDiscount.getText().toString();
+        String name=etName.getText().toString();
         boolean isOk=true;
         //note: another validate option for the address it have to chek if the address is located
         if(adress.length()==0){
@@ -107,10 +105,15 @@ public class AddShopActivity extends AppCompatActivity {
             isOk= false;
             etDiscount.setError("Impossible Discount ");
         }
+        if(name.length()==0 || name.length()>3){
+            isOk= false;
+            etName.setError("Impossible Name ");
+        }
         if (isOk){
             //6 save on fireabase
             //6.1 build your data project
             Shop shop= new Shop();
+            shop.setName(name);
             shop.setAddress(adress);
             shop.setDiscountString(discount);
             shop.setCategory(( String ) spinner_categ.getSelectedItem());
