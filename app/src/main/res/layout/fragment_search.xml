@@ -45,17 +45,6 @@
                 android:typeface="sans" />
 
             <EditText
-                android:id="@+id/EtLocation"
-                android:layout_width="match_parent"
-                android:layout_height="58dp"
-                android:ems="10"
-                android:fontFamily="@font/alike"
-                android:hint="Location?"
-                android:inputType="textPersonName"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
                 android:id="@+id/EtAdress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

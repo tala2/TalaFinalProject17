@@ -40,7 +40,7 @@ public class AddShopActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_shop);
         spinner_categ=findViewById(R.id.spinner_categ);
         radioGroup=findViewById(R.id.radioGroup);
-        etName=findViewById(R.id.etShopName);
+        etName=findViewById(R.id.etshopName);
         radioNo=findViewById(R.id.radioNo);
         radioyes=findViewById(R.id.radioYes);
         tvQuestion=findViewById(R.id.TvQuastion);
@@ -97,11 +97,12 @@ public class AddShopActivity extends AppCompatActivity {
         String name=etName.getText().toString();
         boolean isOk=true;
         //note: another validate option for the address it have to chek if the address is located
+
         if(adress.length()==0){
             isOk= false;
             etAdress.setError("Wrong Address");
         }
-        if(discount.length()==0 || discount.length()>3){
+        if(  discount.length()>3){
             isOk= false;
             etDiscount.setError("Impossible Discount ");
         }
@@ -110,14 +111,20 @@ public class AddShopActivity extends AppCompatActivity {
             etName.setError("Impossible Name ");
         }
         if (isOk){
-            //6 save on fireabase
-            //6.1 build your data project
             Shop shop= new Shop();
             shop.setName(name);
             shop.setAddress(adress);
-            shop.setDiscountString(discount);
             shop.setCategory(( String ) spinner_categ.getSelectedItem());
-            //6.
+            if(radioyes.isSelected())
+            {
+                //6 save on firebase
+                //6.1 build your data project
+                shop.setDiscountString(discount);
+            }
+            if(radioNo.isSelected())
+            {
+                shop.setDiscountString("0");
+            }
             saveShop(shop);
         }
     }

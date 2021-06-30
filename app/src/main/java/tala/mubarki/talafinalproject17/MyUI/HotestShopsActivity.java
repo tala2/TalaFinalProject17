@@ -59,7 +59,7 @@ public class HotestShopsActivity extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         String uid = auth.getUid();
         DatabaseReference reference = database.getReference();
-        reference.child("AllShops").child(uid).addValueEventListener(new ValueEventListener() {
+        reference.child("AllShops").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 adaptor.clear();
@@ -69,9 +69,9 @@ public class HotestShopsActivity extends AppCompatActivity {
                     if (stTosearch == null || stTosearch.length() == 0) {
                         {
                             //checks if the discount is bigger than 50
-                            if (t.getDiscountpercent()>50){
+
                                 adaptor.add(t);
-                            }
+
                         }
                     }
                     else if (t.getName().contains(stTosearch)) {

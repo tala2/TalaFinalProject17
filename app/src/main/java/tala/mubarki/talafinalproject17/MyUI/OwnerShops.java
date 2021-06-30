@@ -32,7 +32,6 @@ public class OwnerShops extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         myShopsAdaptor=new MyShopsAdaptor(getBaseContext(),R.layout.item_shop_view1);
-
         setContentView(R.layout.activity_owner_shops);
         listShops=findViewById(R.id.listShops);
         MySales=findViewById(R.id.EtMyShops);

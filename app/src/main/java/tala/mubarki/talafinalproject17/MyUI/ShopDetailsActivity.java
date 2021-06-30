@@ -28,8 +28,8 @@ public class ShopDetailsActivity extends AppCompatActivity {
         if(intent!=null){
             Shop shop=(Shop) intent.getExtras().get("Shop");
             TvName.setText("Name:"+shop.getName());
-            TvCategory.setText("Name:"+shop.getName());
-
+            TvCategory.setText("Category:"+shop.getCategory());
+            TvDiscount.setText("Discount:"+shop.getDiscountString());
         }
     }
 }

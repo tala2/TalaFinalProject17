@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.Manifest;
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Address;
@@ -61,6 +62,7 @@ import java.util.concurrent.Executor;
 
 import tala.mubarki.talafinalproject17.Data.MyShopsAdaptor;
 import tala.mubarki.talafinalproject17.Data.Shop;
+import tala.mubarki.talafinalproject17.MyUI.SignInActivity;
 import tala.mubarki.talafinalproject17.R;
 
 public class MapsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
@@ -177,6 +179,8 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
                 if (i == 7) {
                     FirebaseAuth auth = FirebaseAuth.getInstance();
                     auth.signOut();
+                    Intent intent=new Intent(getContext(), SignInActivity.class);
+                    startActivity(intent);
                 }
             }
             @Override
@@ -322,6 +326,7 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
                     Log.d("MyShops", t.toString());
                     if (stTosearch == null || stTosearch.length() == 0) {
                        {
+
                             adaptor.add(t);
                            Geocoder geocoder= new Geocoder(getContext());
                            try {

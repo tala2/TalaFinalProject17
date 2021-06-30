@@ -9,57 +9,60 @@
     <TextView
         android:id="@+id/itmTvname"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginBottom="9dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="59dp"
         android:fontFamily="@font/alike"
         android:text="Shop Name"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imgbtnNav"
-        app:layout_constraintEnd_toStartOf="@+id/imgbtnEdit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/itmtVDiscount"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnNav"
+        app:layout_constraintStart_toStartOf="@+id/imgbtnInfo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <ImageButton
         android:id="@+id/imgBtnDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="18dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgbtnNav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnEdit"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnNav"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
     <TextView
         android:id="@+id/itmtVDiscount"
-        android:layout_width="91dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="19dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="111dp"
         android:fontFamily="@font/alike"
         android:text="Discount"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/imgbtnEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="41dp"
-        app:layout_constraintEnd_toStartOf="@+id/imgBtnDelete"
-        app:layout_constraintStart_toEndOf="@+id/itmTvname"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnNav"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnInfo"
+        app:layout_constraintTop_toBottomOf="@+id/itmTvname" />
 
     <ImageButton
         android:id="@+id/imgbtnNav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="23dp"
-        app:layout_constraintEnd_toStartOf="@+id/imgbtnEdit"
+        app:layout_constraintEnd_toStartOf="@+id/imgBtnDelete"
+        app:layout_constraintStart_toEndOf="@+id/itmtVDiscount"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_mapmode" />
+
+    <ImageButton
+        android:id="@+id/imgbtnInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/itmtVDiscount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/itmTvname"
+        app:srcCompat="@android:drawable/ic_menu_info_details" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
