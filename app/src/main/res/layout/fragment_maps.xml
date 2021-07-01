@@ -7,11 +7,38 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <Spinner
-        android:id="@+id/spinner_filter"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <Spinner
+            android:id="@+id/spinner_categ1"
+            android:layout_width="245dp"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:id="@+id/EtAdress1"
+            android:layout_width="158dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Adress"
+            android:inputType="textPersonName" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnFind2"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:backgroundTint="@color/common_google_signin_btn_tint"
+        android:fontFamily="@font/alice"
+        android:text="Find"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/black"
+        android:textSize="64sp" />
 
     <fragment
         android:id="@+id/map"

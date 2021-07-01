@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.SearchFragment">
+    >
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.HotestShopsFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -36,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="79dp"
                 android:fontFamily="@font/allura"
-                android:text="Search Fragment"
+                android:text="Hotest Shops"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/purple_500"
@@ -44,51 +43,24 @@
                 android:textStyle="bold"
                 android:typeface="sans" />
 
-            <EditText
-                android:id="@+id/EtAdress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Adress"
-                android:inputType="textPersonName" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="14dp" />
-
 
             <Spinner
                 android:id="@+id/spinner_shops"
                 android:layout_width="match_parent"
                 android:layout_height="76dp" />
 
-            <Space
+            <ImageButton
+                android:id="@+id/btnRef"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="50dp"
+                android:background="@drawable/custom_email_icon"
+                app:srcCompat="@drawable/ic_baseline_refresh_24" />
 
-            <LinearLayout
+            <ListView
+                android:id="@+id/list_Hotest"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="447dp" />
 
-                <Space
-                    android:layout_width="11dp"
-                    android:layout_height="38dp"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/btnFind1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/common_google_signin_btn_tint"
-                    android:fontFamily="@font/alice"
-                    android:text="Find"
-                    android:textAllCaps="false"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                    android:textColor="@color/black"
-                    android:textSize="64sp" />
-
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

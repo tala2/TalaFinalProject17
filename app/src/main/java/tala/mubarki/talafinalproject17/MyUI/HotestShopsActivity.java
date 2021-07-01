@@ -4,17 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.location.Address;
-import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,12 +17,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.IOException;
-import java.util.List;
-
 import tala.mubarki.talafinalproject17.Data.MyShopsAdaptor;
 import tala.mubarki.talafinalproject17.Data.Shop;
-import tala.mubarki.talafinalproject17.Fragments.SearchFragment;
+import tala.mubarki.talafinalproject17.Fragments.HotestShopsFragment;
 import tala.mubarki.talafinalproject17.R;
 
 public class HotestShopsActivity extends AppCompatActivity {
@@ -43,7 +35,7 @@ public class HotestShopsActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(HotestShopsActivity.this, SearchFragment.class);
+                Intent intent=new Intent(HotestShopsActivity.this, HotestShopsFragment.class);
                 startActivity(intent);
             }
         });

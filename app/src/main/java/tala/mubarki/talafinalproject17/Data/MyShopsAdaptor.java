@@ -78,7 +78,7 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(), ShopDetailsActivity.class);
-                 intent.putExtra("Shop", ( Parcelable ) shop);
+                 intent.putExtra("Shop", String.valueOf(shop));
                 getContext().startActivity(intent);
             }
         });

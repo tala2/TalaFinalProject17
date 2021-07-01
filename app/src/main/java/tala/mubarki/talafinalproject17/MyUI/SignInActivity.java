@@ -32,16 +32,15 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sign_in);
+        //3
         //11 check if I signed in before
+
         FirebaseAuth auth=FirebaseAuth.getInstance();
         if(auth.getCurrentUser()!=null)//user signed in before
         {
             checkOwner();
         }
-
-        setContentView(R.layout.activity_sign_in);
-        //3
-
         etEmail=findViewById(R.id.ettEmailAddress);
         etPassword=findViewById(R.id.etPass);
         btnLogin=findViewById(R.id.btnSignIn);

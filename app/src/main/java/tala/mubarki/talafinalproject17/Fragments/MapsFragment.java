@@ -12,7 +12,6 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -25,6 +24,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -36,19 +37,14 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.JointType;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.Polyline;
-import com.google.android.gms.maps.model.PolylineOptions;
-import com.google.android.gms.maps.model.RoundCap;
-import com.google.android.gms.maps.model.SquareCap;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -58,7 +54,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.Executor;
 
 import tala.mubarki.talafinalproject17.Data.MyShopsAdaptor;
 import tala.mubarki.talafinalproject17.Data.Shop;
@@ -73,12 +68,18 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
     private LocationRequest mLocationRequest;
     private Location mLastLocation;
     Marker mCurrLocationMarker;
-    private Spinner spinner_filter;
+    private Spinner spinner_category;
+    private Button btnFind;
+    private Spinner spinner;
+    private EditText etadress;
+    public static String  adress="";
+    public static String category="";
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
         @Override
         public void onMapReady(GoogleMap googleMap) {
             mMap = googleMap;
+            readTasksFromFirebase("");
             mLocationRequest = new LocationRequest();
             mLocationRequest.setInterval(1000 * 6); //1000MS=1S
             mLocationRequest.setFastestInterval(1000 * 6);
@@ -157,23 +158,24 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
             }
         }
     };
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_maps, container, false);
         adaptor=new MyShopsAdaptor(getContext(),R.layout.item_shop_view1);
         shops_lst = view.findViewById(R.id.shops_list);
         shops_lst.setAdapter(adaptor);
-        readTasksFromFirebase(null);
-        spinner_filter = view.findViewById(R.id.spinner_filter);
+        etadress=view.findViewById(R.id.EtAdress1);
+        spinner_category = view.findViewById(R.id.spinner_categ1);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.kind, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_filter.setAdapter(adapter);
-        spinner_filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner_category.setAdapter(adapter);
+
+        btnFind=view.findViewById(R.id.btnFind2);
+        readTasksFromFirebase("");
+        spinner_category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 7) {
@@ -187,7 +189,14 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
-
+        btnFind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                category= ( String ) spinner_category.getSelectedItem();
+                adress=etadress.getText().toString();
+               readTasksFromFirebase("");
+            }
+        });
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(getContext());
         if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -223,8 +232,6 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
 //        mapFragment.getMapAsync(( OnMapReadyCallback ) getContext());
         return view;
     }
-
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -232,8 +239,8 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
         if (mapFragment != null) {
             mapFragment.getMapAsync(callback);
         }
-    }
 
+    }
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private void checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
@@ -268,7 +275,6 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
             }
         }
     }
-
     @Override
     public void onPause() {
         super.onPause();
@@ -278,7 +284,6 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
             fusedLocationClient.removeLocationUpdates(mLocationCallback);
         }
     }
-
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
@@ -324,7 +329,7 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
                 for (DataSnapshot d : snapshot.getChildren()) {
                     Shop t = d.getValue(Shop.class);
                     Log.d("MyShops", t.toString());
-                    if (stTosearch == null || stTosearch.length() == 0) {
+                    if (adress.length() == 0 && category.length()==0) {
                        {
 
                             adaptor.add(t);
@@ -334,16 +339,32 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
                                if(addressList.size()>0) {
                                    Address address = addressList.get(0);
                                    LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-                                   mMap.addMarker(new MarkerOptions().position(latLng).title(t.getName()));
-                                   mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12));
+                                   if(mMap!=null) {
+                                       mMap.addMarker(new MarkerOptions().position(latLng).title(t.getName()));
+                                       mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12));
+                                   }
                                }
                                } catch (IOException e) {
                                e.printStackTrace();
                            }
                        }
-                    } else if (t.getName().contains(stTosearch)) {
+                    } else if (t.getCategory().contains(category)&&t.getAddress().contains(adress)) {
                         {
                             adaptor.add(t);
+                            Geocoder geocoder= new Geocoder(getContext());
+                            try {
+                                List<Address> addressList = geocoder.getFromLocationName(t.getAddress(), 3);
+                                if(addressList.size()>0) {
+                                    Address address = addressList.get(0);
+                                    LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                                    if(mMap!=null) {
+                                        mMap.addMarker(new MarkerOptions().position(latLng).title(t.getName()));
+                                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12));
+                                    }
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                 }
@@ -366,5 +387,11 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        readTasksFromFirebase("");
     }
 }

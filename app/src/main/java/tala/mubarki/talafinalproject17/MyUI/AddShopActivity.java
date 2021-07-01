@@ -3,6 +3,7 @@ package tala.mubarki.talafinalproject17.MyUI;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -74,6 +75,8 @@ public class AddShopActivity extends AppCompatActivity {
                 if(1==7){
                     FirebaseAuth auth=FirebaseAuth.getInstance();
                     auth.signOut();
+                    Intent intent=new Intent(getContext(), SignInActivity.class);
+                    startActivity(intent);
                 }
             }
 
@@ -106,7 +109,7 @@ public class AddShopActivity extends AppCompatActivity {
             isOk= false;
             etDiscount.setError("Impossible Discount ");
         }
-        if(name.length()==0 || name.length()>3){
+        if(name.length()==0 ){
             isOk= false;
             etName.setError("Impossible Name ");
         }

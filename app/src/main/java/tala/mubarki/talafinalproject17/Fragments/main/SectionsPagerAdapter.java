@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import tala.mubarki.talafinalproject17.Fragments.MapsFragment;
-import tala.mubarki.talafinalproject17.Fragments.SearchFragment;
+import tala.mubarki.talafinalproject17.Fragments.HotestShopsFragment;
 import tala.mubarki.talafinalproject17.R;
 
 /**
@@ -18,7 +18,7 @@ import tala.mubarki.talafinalproject17.R;
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
     private MapsFragment mapsFragment1;
-    private SearchFragment searchFragment;
+    private HotestShopsFragment hotestShopsFragment;
 
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.search,R.string.map};
@@ -32,11 +32,11 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if(position==0){
-            if(searchFragment==null)
+            if(hotestShopsFragment ==null)
             {
-                searchFragment=new SearchFragment();
+                hotestShopsFragment =new HotestShopsFragment();
             }
-            return searchFragment;
+            return hotestShopsFragment;
         }
         if(position==1){
             if(mapsFragment1==null)
