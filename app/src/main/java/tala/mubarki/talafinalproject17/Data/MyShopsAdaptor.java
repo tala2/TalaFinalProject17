@@ -48,12 +48,12 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
         View v = LayoutInflater.from(getContext()).inflate(R.layout.item_shop_view1, parent, false);
         //3.2 find view by ID
         //3.3 get the soutable shop object
+        //gets item in the position(0,1,2...)
         final Shop shop=getItem(position);
         ImageButton btnDelete = v.findViewById(R.id.imgBtnDelete);
         ImageButton btnInfo=v.findViewById(R.id.imgbtnInfo);
         TextView tvName = v.findViewById(R.id.itmTvname);
         ImageButton btnNav=v.findViewById(R.id.imgbtnNav);
-        //sale
         TextView tvDiscount = v.findViewById(R.id.itmtVDiscount);
         //3.4 connect the dot to the view (view the data using item views)
         //3.5 events
@@ -68,6 +68,9 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
                getContext().startActivity(intent);
             }
         });
+        /**
+         * delets the item
+         */
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,7 +81,7 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(), ShopDetailsActivity.class);
-                 intent.putExtra("Shop", String.valueOf(shop));
+                 intent.putExtra("Shop", shop);
                 getContext().startActivity(intent);
             }
         });
@@ -86,29 +89,6 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
         tvDiscount.setText(shop.getDiscountString());
         return v;
     }
-    private void shopInformation(Shop shop) {
-        FirebaseDatabase database=FirebaseDatabase.getInstance();
-        //2.
-        DatabaseReference reference=database.getReference();
-        //3. user id
-        FirebaseAuth auth=FirebaseAuth.getInstance();
-        String uid=auth.getCurrentUser().getUid();
-        //4. My object key
-        // reference.child("All shops").child(uid).child(myShop.getKey()).removeValue().addOnCompleteListener(new )
-        reference.child("AllShops").child(shop.getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()) {
-                    Toast.makeText(getContext(),"Delete Successful",Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(getContext(),"Delete Failed"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-                    task.getException().printStackTrace();
-                }
-            }
-        });
-    }
-
     private void deleteShop(Shop myShop){
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         //2.
@@ -117,7 +97,7 @@ public class MyShopsAdaptor extends ArrayAdapter<Shop> {
         FirebaseAuth auth=FirebaseAuth.getInstance();
         String uid=auth.getCurrentUser().getUid();
         //4. My object key
-       // reference.child("All shops").child(uid).child(myShop.getKey()).removeValue().addOnCompleteListener(new )
+       // gets the specific shop according to the key
         reference.child("AllShops").child(myShop.getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

@@ -14,7 +14,7 @@
 
         <Spinner
             android:id="@+id/spinner_categ1"
-            android:layout_width="245dp"
+            android:layout_width="210dp"
             android:layout_height="match_parent" />
 
         <EditText
@@ -31,20 +31,20 @@
     <Button
         android:id="@+id/btnFind2"
         android:layout_width="match_parent"
-        android:layout_height="76dp"
+        android:layout_height="57dp"
         android:backgroundTint="@color/common_google_signin_btn_tint"
         android:fontFamily="@font/alice"
         android:text="Find"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/black"
-        android:textSize="64sp" />
+        android:textSize="23sp" />
 
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="304dp"
+        android:layout_height="212dp"
         tools:context=".Fragments.MapsFragment" />
     <ListView
         android:id="@+id/shops_list"

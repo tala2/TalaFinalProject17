@@ -21,7 +21,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     private HotestShopsFragment hotestShopsFragment;
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.search,R.string.map};
+    private static final int[] TAB_TITLES = new int[]{R.string.shops,R.string.map};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -44,11 +44,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 mapsFragment1=new MapsFragment();
             }
             return mapsFragment1;
-//            if(mapsFragment2==null)
-//            {
-//                mapsFragment2=new MapsFragment2();
-//            }
-//            return mapsFragment2;
+//
         }
         return null;
     }

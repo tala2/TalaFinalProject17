@@ -76,7 +76,10 @@ public class SignInActivity extends AppCompatActivity {
             etEmail.setError("Wrong Email Address Please Rewrite");
         }
         //4
-
+        if(passw.length()==0|| passw.length()<8)
+        {
+            etPassword.setError("Wrong Email Passwaord Please Rewrite");
+        }
         //5
         if (isOk){
             logIn(email,passw);

@@ -61,6 +61,7 @@ import tala.mubarki.talafinalproject17.MyUI.SignInActivity;
 import tala.mubarki.talafinalproject17.R;
 
 public class MapsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+    //map
     private GoogleMap mMap;
     private FusedLocationProviderClient fusedLocationClient;
     private ListView shops_lst;
@@ -72,8 +73,8 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
     private Button btnFind;
     private Spinner spinner;
     private EditText etadress;
-    public static String  adress="";
-    public static String category="";
+    public  String  adress="";
+    public  String category="";
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
         @Override
@@ -101,7 +102,6 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
             }
 
         }
-
         /**
          * Manipulates the map once available.
          * This callback is triggered when the map is ready to be used.
@@ -164,7 +164,9 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_maps, container, false);
+        //adapter to itemview
         adaptor=new MyShopsAdaptor(getContext(),R.layout.item_shop_view1);
+        //find view
         shops_lst = view.findViewById(R.id.shops_list);
         shops_lst.setAdapter(adaptor);
         etadress=view.findViewById(R.id.EtAdress1);
@@ -172,13 +174,16 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.kind, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_category.setAdapter(adapter);
-
         btnFind=view.findViewById(R.id.btnFind2);
         readTasksFromFirebase("");
+        /**
+         * listener for the spinner, which will call the "onItemSelected" method when the item is selected.
+         */
         spinner_category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 7) {
+                //signs out if the user chooses the last item un the spinner
+                if (i == 6) {
                     FirebaseAuth auth = FirebaseAuth.getInstance();
                     auth.signOut();
                     Intent intent=new Intent(getContext(), SignInActivity.class);
@@ -189,11 +194,15 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
+        //search
         btnFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //takes the value from the selected item
                 category= ( String ) spinner_category.getSelectedItem();
+                //takes the text
                 adress=etadress.getText().toString();
+                //go the readTasksFromFirebase
                readTasksFromFirebase("");
             }
         });
@@ -211,6 +220,7 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
             ;
             // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         }
+
         fusedLocationClient.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
@@ -219,7 +229,7 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
 //                    if(route!=null)
 //                    route.getPics().put(mLastLocation,"test");
                     LatLng latLng = new LatLng(location.getAltitude(), location.getLongitude());
-                    mMap.addMarker(new MarkerOptions().position(latLng).title("Marker in Sydney"));
+                    mMap.addMarker(new MarkerOptions().position(latLng).title(""));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
                     Toast.makeText(getContext(), "Last Location:", Toast.LENGTH_LONG).show();
                 }
@@ -284,6 +294,13 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
             fusedLocationClient.removeLocationUpdates(mLocationCallback);
         }
     }
+
+    /**
+     *        // Now, request for permission if not granted and get the result on onRequestPermissionsResult overridden method
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
@@ -317,6 +334,7 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
         }
 
     }
+    //download from firebase
     private void readTasksFromFirebase(final String stTosearch) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -329,25 +347,35 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
                 for (DataSnapshot d : snapshot.getChildren()) {
                     Shop t = d.getValue(Shop.class);
                     Log.d("MyShops", t.toString());
-                    if (adress.length() == 0 && category.length()==0) {
+                    if (adress.length() == 0 || category.length()==0) {
                        {
-
+                           //adds to the adapter
                             adaptor.add(t);
+                            //transforming the address of the shop into (latitude, langtitude) coordinations
                            Geocoder geocoder= new Geocoder(getContext());
+                           //try and catch checks if there is mistake while running the project
                            try {
+                               //list to collect the first tree results of the geocoder
                                List<Address> addressList = geocoder.getFromLocationName(t.getAddress(), 3);
+                               //if he finds address
                                if(addressList.size()>0) {
+                                   //takes only the first address
                                    Address address = addressList.get(0);
+                                   //bulding a latlng of the address
                                    LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                                   // if there is MAP
                                    if(mMap!=null) {
+                                       //ADDS THE SHOP
                                        mMap.addMarker(new MarkerOptions().position(latLng).title(t.getName()));
                                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12));
                                    }
                                }
                                } catch (IOException e) {
+                               //used to handle exceptions and errors.
                                e.printStackTrace();
                            }
                        }
+                       //do the search, checks if the category and the address is any shop of the list
                     } else if (t.getCategory().contains(category)&&t.getAddress().contains(adress)) {
                         {
                             adaptor.add(t);
@@ -377,18 +405,14 @@ public class MapsFragment extends Fragment implements AdapterView.OnItemSelected
 
         });
     }
-
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         String selectedShops=adapterView.getItemAtPosition(i).toString();
         Toast.makeText(getContext(),selectedShops,Toast.LENGTH_SHORT).show();
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
-
     @Override
     public void onResume() {
         super.onResume();

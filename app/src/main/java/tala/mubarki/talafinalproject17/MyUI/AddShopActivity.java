@@ -68,21 +68,19 @@ public class AddShopActivity extends AppCompatActivity {
                 }
             }
         });
+        //
         spinner_categ.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if(1==7){
+                if(i==6){
                     FirebaseAuth auth=FirebaseAuth.getInstance();
                     auth.signOut();
-                    Intent intent=new Intent(getContext(), SignInActivity.class);
+                    Intent intent=new Intent(AddShopActivity.this,SignInActivity.class);
                     startActivity(intent);
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });
         //4 listner
@@ -100,12 +98,11 @@ public class AddShopActivity extends AppCompatActivity {
         String name=etName.getText().toString();
         boolean isOk=true;
         //note: another validate option for the address it have to chek if the address is located
-
         if(adress.length()==0){
             isOk= false;
             etAdress.setError("Wrong Address");
         }
-        if(  discount.length()>3){
+        if(  discount.length()>2){
             isOk= false;
             etDiscount.setError("Impossible Discount ");
         }
@@ -118,13 +115,13 @@ public class AddShopActivity extends AppCompatActivity {
             shop.setName(name);
             shop.setAddress(adress);
             shop.setCategory(( String ) spinner_categ.getSelectedItem());
-            if(radioyes.isSelected())
+            if(radioyes.isChecked())
             {
                 //6 save on firebase
                 //6.1 build your data project
                 shop.setDiscountString(discount);
             }
-            if(radioNo.isSelected())
+            if(radioNo.isChecked())
             {
                 shop.setDiscountString("0");
             }

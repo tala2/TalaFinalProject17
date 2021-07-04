@@ -10,7 +10,7 @@ import tala.mubarki.talafinalproject17.Data.Shop;
 import tala.mubarki.talafinalproject17.R;
 
 public class ShopDetailsActivity extends AppCompatActivity {
-    private TextView textView,TvName,TvDiscount,TvCategory;
+    private TextView textView,TvName,TvDiscount,TvCategory,TvAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,16 +20,19 @@ public class ShopDetailsActivity extends AppCompatActivity {
         TvDiscount=findViewById(R.id.tvDiscount1);
         TvCategory=findViewById(R.id.tvCategory);
         TvName=findViewById(R.id.tvNameShop);
+        TvAddress=findViewById(R.id.tvAddress);
     }
     @Override
     protected void onResume() {
         super.onResume();
         Intent intent=getIntent();
         if(intent!=null){
-            Shop shop=(Shop) intent.getExtras().get("Shop");
+            Shop shop= ( Shop ) intent.getExtras().get("Shop");
             TvName.setText("Name:"+shop.getName());
             TvCategory.setText("Category:"+shop.getCategory());
-            TvDiscount.setText("Discount:"+shop.getDiscountString());
+            TvDiscount.setText("Discount:"+shop.getDiscountpercent());
+            TvAddress.setText("Address:"+shop.getAddress());
+
         }
     }
 }

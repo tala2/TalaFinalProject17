@@ -1,11 +1,12 @@
 package tala.mubarki.talafinalproject17.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * class for each shop for the user(owner)
  */
-public class Shop {
+public class Shop  implements Serializable {
     /**
      * key: id
      * name: name of the shop

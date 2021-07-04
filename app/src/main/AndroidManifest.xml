@@ -23,7 +23,6 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity android:name=".MyUI.ShopDetailsActivity"></activity>
-        <activity android:name=".MyUI.HotestShopsActivity" />
         <activity
             android:name=".Fragments.MainTabsShops"
             android:label="@string/title_activity_main_tabs_shops"
@@ -42,7 +41,6 @@
 
         <activity android:name=".MyUI.OwnerShops" />
         <activity android:name=".MyUI.ProfileActivity" />
-        <activity android:name=".MyUI.MainActivity" />
         <activity android:name=".MyUI.SignUpActivity" />
         <activity android:name=".MyUI.SignInActivity">
             <intent-filter>
@@ -51,7 +49,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MyUI.HomeScreenActivity" />
         <activity android:name=".MyUI.AddShopActivity" />
 
         <meta-data

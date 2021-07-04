@@ -25,7 +25,8 @@ import tala.mubarki.talafinalproject17.R;
 public class OwnerShops extends AppCompatActivity {
     private Button btnadd;
     private ListView listShops;
-    private TextView MySales;
+    private TextView MyShops;
+    //2 after building the array adapter
     private MyShopsAdaptor myShopsAdaptor;
 
     @Override
@@ -34,7 +35,8 @@ public class OwnerShops extends AppCompatActivity {
         myShopsAdaptor=new MyShopsAdaptor(getBaseContext(),R.layout.item_shop_view1);
         setContentView(R.layout.activity_owner_shops);
         listShops=findViewById(R.id.listShops);
-        MySales=findViewById(R.id.EtMyShops);
+        MyShops=findViewById(R.id.EtMyShops);
+        //5. connect listview to the adaptor
         listShops.setAdapter(myShopsAdaptor);
         readTasksFromFirebase(null);
         btnadd=findViewById(R.id.btnAddS);
@@ -46,6 +48,7 @@ public class OwnerShops extends AppCompatActivity {
             }
         });
     }
+    //download from firebase
     private void readTasksFromFirebase(final String stTosearch) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -54,7 +57,9 @@ public class OwnerShops extends AppCompatActivity {
         reference.child("AllShops").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //clears the shop adaptor
                 myShopsAdaptor.clear();
+                //datasnapshot takes the data
                 for (DataSnapshot d : snapshot.getChildren()) {
                     Shop t = d.getValue(Shop.class);
                     Log.d("My Shops", t.toString());

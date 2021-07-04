@@ -26,7 +26,7 @@ public class SignUpActivity extends AppCompatActivity {
     private ScrollView scrView;
     private TableLayout tab;
     private EditText etEmail2,etPassWord, etPassWordVerify;
-    private Button btnSave,btnReturn;
+    private Button btnSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,17 +59,14 @@ public class SignUpActivity extends AppCompatActivity {
             isOk = false;
             etEmail2.setError("Wrong Email Address Please Rewrite");
         }
+        if(passw1.length()==0|| passw1.length()<8)
+        {
+            etPassWord.setError("Wrong Email Passwaord Please Rewrite");
+        }
         if(passw1.equals(passw2)==false)
         {
             isOk=false;
             etPassWordVerify.setError("passwords must be the same!");
-        }
-        else {
-      //     MyValidations myValidations = new MyValidations();
-//            if (myValidations.validatepassword(passw1) == false) {
-//                isOk = false;
-//                etPassWord.setError("Invalid Password!");
-//            }
         }
 
         if(isOk)

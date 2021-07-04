@@ -49,13 +49,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="76dp" />
 
-            <ImageButton
-                android:id="@+id/btnRef"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/custom_email_icon"
-                app:srcCompat="@drawable/ic_baseline_refresh_24" />
-
             <ListView
                 android:id="@+id/list_Hotest"
                 android:layout_width="match_parent"

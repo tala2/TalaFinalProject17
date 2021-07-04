@@ -57,7 +57,9 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
     }
-
+    /**
+     * checks if the fields are correct
+     */
     private void validateForm() {
         String fname = etFirstName.getText().toString();
         String lname = etLastName.getText().toString();
@@ -73,29 +75,33 @@ public class ProfileActivity extends AppCompatActivity {
             etLastName.setError("Wrong LastName");
         }
         if (isOk){
-            //6 save on fireabase
-            //6.1 build your data project
+            //if the radioOwner is choosed
             if(radioCustomer.isChecked())
             { Customer customer= new Customer();
                 customer.setName(fname);
                 customer.setPhone(phone);
                 customer.setLastName(lname);
                 customer.setType("customer");
-                //6.
+                //6 save on fireabase
                 saveCustomer(customer);
             }
+            //if the radioOwner is choosed
             if(radioOwner.isChecked()){
                 Owner owner=new Owner();
                 owner.setType("owner");
                 owner.setName(fname);
                 owner.setPhone(phone);
                 owner.setLastName(lname);
-                //6.
+                //6.save on Firebase
                 saveOwner(owner);
             }
         }
     }
 
+    /**
+     * save to firebase
+     * @param customer
+     */
     private void saveCustomer(Customer customer) {
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         //2.
@@ -108,12 +114,13 @@ public class ProfileActivity extends AppCompatActivity {
         //5
         customer.setOwner(uid);
         customer.setKey(key);
-        //6. actual storing
+        //6. takes reference of AllCustomers then the uid then it request a permisin in the firebase with listner in order to get the response
         reference.child("AllCustomers").child(uid).setValue(customer).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(ProfileActivity.this,"add successful",Toast.LENGTH_SHORT).show();
+                    //sets/adds the customer then go to MainShop
                     Intent i=new Intent(ProfileActivity.this, MainTabsShops.class);
                     startActivity(i);
                     finish();
@@ -137,12 +144,13 @@ public class ProfileActivity extends AppCompatActivity {
         //5
         owner.setOwner(uid);
         owner.setKey(key);
-        //6. actual storing
+        //6. takes reference of AllOwners then the uid then it request a permisin in the firebase with listner in order to get the response
         reference.child("AllOwners").child(uid).setValue(owner).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()) {
                     Toast.makeText(ProfileActivity.this, "add successful", Toast.LENGTH_SHORT).show();
+                    //sets/adds the owners then go to OwnerShops
                     Intent i=new Intent(ProfileActivity.this, OwnerShops.class);
                     startActivity(i);
                     finish();
